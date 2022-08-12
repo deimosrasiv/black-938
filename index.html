@@ -1,0 +1,233 @@
+
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Icono de la página -->
+    <link rel="icon" href="/assets/img/favicon.ico" type="ico" sizes="19x19">
+    <title>Black 938</title>
+    <!-- Bootstrap   -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- Mis Css  -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    
+
+
+
+
+
+    <!-- Tipografía de Google Fonts Prompt ital (200, 300, 400)   importado al css-->
+    
+    <!-- Meta Datos  -->
+    <meta name="" />
+    <meta name="" />
+</head>
+
+<body>
+
+ 
+    <div class="row">
+        <header>
+            <div class="col-8  col-xxl-8 ">
+                <small href="#" class="logo ">Black 938<small class="punto">.</small></small>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="col-4  col-xxl-4 text-end pt-3 pe-5">
+            
+                    <a class="nav-link" href="#" data-toggle="modal" onclick="ingresa()" data-target="#signinModal">Signin</a> 
+                    <a class="nav-link" href="#" id="logout">Logout</a> 
+                        <!--<li><a href="#" onclick="sali()">salir</a></li>-->
+            
+                </div>
+        </header>
+    </div>
+    <section class="banner">
+    </section>
+
+    <section class="contenido">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 col-md-6 ">
+                    <h1 >Solicite su Acceso</h1>
+                    <small>Balck 938. LisLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</small>
+                    <img class="img-fluid" id="ejecutiva" src="assets/img/ejecutiva.jpg ">
+                </div>
+
+                <div class="col-12 col-lg-6 col-md-6  alert alert-secondary  ">
+                    <form>
+                        <div class="card alert  " role="alert">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label ">Nombre Apellidos</label>
+                                <input type="email" class="form-control shadow-lg text-capitalize" id="nombre" placeholder="Juan Quintanilla Paredes" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                <input type="email" class="form-control shadow-lg" id="email" placeholder="ejemplo@email.cl" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Indique el motivo de su solicitud.</label>
+                                <textarea class="form-control shadow-lg" id="textMessage" onkeypress="countChars(this);" onkeydown="countChars(this);" required data-max=300 maxlength=300 style="width:100%; height: 200px ;align-items: center;" aria-label="With textarea"></textarea>
+                                <span>
+                                    <p class="mb-0" style="align-content: center; font-size: 10px; color: black;"><small id="txaCount"></small></p>
+                                </span>
+                                <small class="fw-light"></small>
+                            </div>
+                            <div class="text-end">
+                                <button type="button" class="btn btn-success" onclick="enviar()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"></path>
+                                    </svg>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Enviar</font>
+                                    </font>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="banner2">
+    </section>
+    <section>
+        <footer>
+            <div class="container text-center card-footer text-muted">
+                <div class="row">
+                    <div class="col col-12 fw-bold">
+                        <span class="fs-4">BLACK 938.</span>
+                    </div>
+                    <div class="col col-12">
+                        <span class="fs-6">
+                            © 2020-2021 Santiago, Chile Ð€IMØ§¯®Ã§Iv Todos los derechos reservados.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <div class="container p-4">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <ul class="list-group posts">
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>SignUp</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="signup-form">
+          <div class="form-group">
+            <input type="text" id="signup-email" class="form-control" placeholder="Title" required>
+          </div>
+          <div class="form-group">
+            <input type="password" id="signup-password" class="form-control" placeholder="Password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!-- Modal para mensajeria --> 
+    <div class="modal fade  " tabindex="-1" id="modalmensajes" aria-labelledby="modalmensajes" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modalcontenido">
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<!-- Firebase  -->
+    
+   <!-- SDK FIREBASE -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+  <!-- Don't change the format for any other products. -->
+  <!-- etc. -->
+
+
+<!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  
+
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+           apiKey: "AIzaSyDEXV4uu0VGnIWNcpr3xCRAYq1u3wxiyBI",
+        authDomain: "black-938.firebaseapp.com",
+        projectId: "black-938",
+        storageBucket: "black-938.appspot.com",
+        messagingSenderId: "493225174118",
+        appId: "1:493225174118:web:72aa09b310b7f57297f9a7",
+        measurementId: "G-CW21DRFX5J" 
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const fs = firebase.firestore();
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="assets/js/app.js" ></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+   
+   
+    <!-- Repositorio de Iconos  -->
+    <script src="https://kit.fontawesome.com/4a4c7845d8.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
