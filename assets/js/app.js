@@ -153,129 +153,264 @@ function countChars(obj) {
 
 function ingresa() {
     var modal = "modalmensajes";
-     modalcontenido.innerHTML = `
+    modalcontenido.innerHTML = `
             <div class="modal-header">
-                <h5 class="modal-title">Autentificación del Usuario</h5>
-                <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-              </div>
-              <div class="modal-body">
-              <form id="login-form">
-              <div class="form-group">
-               <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label ">Nombre Apellidos</label>
-                                <input type="email" class="form-control shadow-lg " id="login-email" placeholder="Juan Quintanilla Paredes" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Email</label>
-                                <input type="password" class="form-control shadow-lg" id="login-password" placeholder="ejemplo@email.cl" required>
-                            </div>
-              </div>
-              </div>
-              </form>
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-secondary btn-block">Login</button>
-                <!-- <button type="submit"  onclick="login()" class="btn btn-secondary btn-block">Login</button>-->
+                <h5 class="modal-title text-center" >Autentificación del Usuario</h5>
+            </div>
+            
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label ">Email</label>
+                            <input type="email" class="form-control shadow-lg " id="signup-email" placeholder="ejemplo@email.cl" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Password</label>
+                            <input type="password" class="form-control shadow-lg" id="signup-password" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="card-footer text-muted " role="alert">
+                        <p class="text-danger text-center" id="error_ingreso"></p>
+                    </div>
+                </form>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary btn-block" onclick="logear()">Login</button>
+                </div>
             </div>
             `
 
-        $('#' + modal).modal('show');
-    
+    $('#' + modal).modal('show');
+
 }
 
-const loggedOutLinks = document.querySelectorAll(".logged-out");
-const loggedInLinks = document.querySelectorAll(".logged-in");
 
-const loginCheck = (user) => {
-  if (user) {
-    loggedInLinks.forEach((link) => (link.style.display = "block"));
-    loggedOutLinks.forEach((link) => (link.style.display = "none"));
-  } else {
-    loggedInLinks.forEach((link) => (link.style.display = "none"));
-    loggedOutLinks.forEach((link) => (link.style.display = "block"));
+function logear(){
+
+
+    console.log("estamos dentro");
+
+
+
+    var email = document.getElementById('signup-email').value;
+    var contrasena = document.getElementById('signup-password').value;
+    var error = document.getElementById('error_ingreso');
+
+
+    console.log(email);
+    console.log(contrasena);
+
+  firebase.auth().signInWithEmailAndPassword(email, contrasena)
+  .catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+
+
+      //console.log(errorCode);
+      //console.log(errorMessage);
+
+      if (errorMessage == "The email address is badly formatted."){
+        
+           document.getElementById('error_ingreso').innerHTML="";        
+
+      }
+
+      if (errorMessage == "The password is invalid or the user does not have a password."){
+         
+            document.getElementById('error_ingreso').innerHTML="La contraseña no es válida o el usuario no tiene contraseña.";
+      }
+
+      if (errorMessage == "There is no user record corresponding to this identifier. The user may have been deleted."){
+        
+            document.getElementById('error_ingreso').innerHTML="No existe registro de usuario correspondiente a este identificador. Es posible que el usuario haya sido eliminado.";
+      }
+
+      if (errorMessage == "Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later."){
+
+        document.getElementById('error_ingreso').innerHTML="El acceso a esta cuenta se ha inhabilitado temporalmente debido a muchos intentos fallidos de inicio de sesión. Puede restaurarlo inmediatamente restableciendo su contraseña o puede volver a intentarlo más tarde.";
+
+      }
+
+     
+});
+
+cierraModal()
+
+
+
+
   }
-};
 
-// SignUp
-const signUpForm = document.querySelector("#signup-form");
-signUpForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = signUpForm["signup-email"].value;
-  const password = signUpForm["signup-password"].value;
-
-  // Authenticate the User
-  auth
-    .createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // clear the form
-      signUpForm.reset();
-      // close the modal
-      $("#signupModal").modal("hide");
-    });
-});
-
-// Logout
-const logout = document.querySelector("#logout");
-
-logout.addEventListener("click", (e) => {
-  e.preventDefault();
-  auth.signOut().then(() => {
-    console.log("signup out");
-  });
-});
-
-// SingIn
-const signInForm = document.querySelector("#login-form");
-
-signInForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = signInForm["login-email"].value;
-  const password = signInForm["login-password"].value;
-
-  // Authenticate the User
-  auth.signInWithEmailAndPassword(email, password).then((userCredential) => {
-    // clear the form
-    signInForm.reset();
-    // close the modal
-    $("#signinModal").modal("hide");
-  });
-});
-
-// Posts
-const postList = document.querySelector(".posts");
-const setupPosts = (data) => {
-  if (data.length) {
-    let html = "";
-    data.forEach((doc) => {
-      const post = doc.data();
-      const li = `
-      <li class="list-group-item list-group-item-action">
-        <h5>${post.title}</h5>
-        <p>${post.content}</p>
-      </li>
-    `;
-      html += li;
-    });
-    postList.innerHTML = html;
-  } else {
-    postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
-  }
-};
-
-
-// events
-// list for auth state changes
-auth.onAuthStateChanged((user) => {
-    if (user) {
-      console.log("signin");
-      fs.collection("posts")
-        .get()
-        .then((snapshot) => {
-          setupPosts(snapshot.docs);
-          loginCheck(user);
-        });
+function cierraModal(){
+    firebase.auth().onAuthStateChanged(function(user) {
+   if (user) {
+     location.reload();
+ 
     } else {
-      console.log("signout");
-      setupPosts([]);
-      loginCheck(user);
-    }
-  });
+
+    }  
+  })
+}
+
+
+observador();
+
+function observador(){
+
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+     console.log('existe usuario activo')
+    //apareceUser(user);
+    // console.log(user.email);
+
+     
+     aparece(user);
+    // User is signed in.
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+  //console.log(emailVerified);
+ 
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    //console.log(email)
+
+    var providerData = user.providerData;
+    // ...
+  } else {
+    // User is signed out.
+    //console.log('no existe usuario activo')
+
+
+
+    //document.getElementById("salir").style = "display: none";
+    contenido.innerHTML=`
+
+            <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 col-md-6 ">
+                    <h1 >Solicite su Acceso</h1>
+                    <small>Balck 938. LisLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</small>
+                    <img class="img-fluid" id="ejecutiva" src="assets/img/ejecutiva.jpg ">
+                </div>
+
+                <div class="col-12 col-lg-6 col-md-6  alert alert-secondary  ">
+                    <form>
+                        <div class="card alert  " role="alert">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label ">Nombre Apellidos</label>
+                                <input type="email" class="form-control shadow-lg text-capitalize" id="nombre" placeholder="Juan Quintanilla Paredes" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                <input type="email" class="form-control shadow-lg" id="email" placeholder="ejemplo@email.cl" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Indique el motivo de su solicitud.</label>
+                                <textarea class="form-control shadow-lg" id="textMessage" onkeypress="countChars(this);" onkeydown="countChars(this);" required data-max=300 maxlength=300 style="width:100%; height: 200px ;align-items: center;" aria-label="With textarea"></textarea>
+                                <span>
+                                    <p class="mb-0" style="align-content: center; font-size: 10px; color: black;"><small id="txaCount"></small></p>
+                                </span>
+                                <small class="fw-light"></small>
+                            </div>
+                            <div class="text-end">
+                                <button type="button" class="btn btn-success" onclick="enviar()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"></path>
+                                    </svg>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Enviar</font>
+                                    </font>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    
+  
+    `;
+    // ...
+  }
+});
+}
+
+
+
+
+
+function cerrar(){
+  firebase.auth().signOut()
+  .then(function(){
+    console.log('Saliendo. . .')
+    document.getElementById("login").style = "display: online";
+    document.getElementById("salir").style = "display: none";
+
+  })
+  .catch(function(error){
+    console.log(error)
+  })
+}
+
+
+
+
+
+
+function aparece(user){
+  var user = user;
+  console.log("estamos dentro del Contenido");
+
+  //console.log(user);
+  var contenido=document.getElementById('contenido');
+
+ // console.log(user.emailVerified);
+
+  
+  if (user.emailVerified){
+    document.getElementById("salir").style = "display: online";
+    document.getElementById("login").style = "display: none";
+
+    //var rr2 = document.getElementById("titulo_usuario").innerHTML;
+    
+    //document.getElementById('modalingresa');
+    
+    //location.reload();
+    contenido.innerHTML=`
+
+<div class="container">
+    <h1 id="titulo_usuario" class="text-center"></h1>
+</div>
+    `;
+   //Identificamos al Usuario en pantalla
+   document.getElementById("titulo_usuario").innerHTML=user.email;
+
+   
+  }
+
+  contenido.innerHTML=`
+
+<div class="container">
+    <h1 id="titulo_usuario" class="text-center"></h1>
+</div>
+    `;
+    document.getElementById("titulo_usuario").innerHTML="Su correo aun no ha sido verificado"
+ console.log(user.emailVerified);
+ document.getElementById("salir").style = "display: online";
+    document.getElementById("login").style = "display: none";
+
+
+}
