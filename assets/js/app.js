@@ -192,10 +192,6 @@ function ingresa() {
 function logear(){
 
 
-    console.log("estamos dentro");
-
-
-
     var email = document.getElementById('signup-email').value;
     var contrasena = document.getElementById('signup-password').value;
     var error = document.getElementById('error_ingreso');
@@ -395,22 +391,15 @@ function aparece(user){
     <h1 id="titulo_usuario" class="text-center"></h1>
 </div>
     `;
-   //Identificamos al Usuario en pantalla
-   document.getElementById("titulo_usuario").innerHTML=user.email;
-
-   
-  }
-
-  contenido.innerHTML=`
-
-<div class="container">
-    <h1 id="titulo_usuario" class="text-center"></h1>
-</div>
-    `;
-    document.getElementById("titulo_usuario").innerHTML="Su correo aun no ha sido verificado"
+    document.getElementById("titulo_usuario").innerHTML="Felicitasiones ya estas dentro de Black-938."
  console.log(user.emailVerified);
  document.getElementById("salir").style = "display: online";
     document.getElementById("login").style = "display: none";
 
+   
+  }
+
+  
 
 }
+
