@@ -15,6 +15,8 @@
 
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
 
 
 
@@ -26,24 +28,33 @@
     <meta name="" />
     <meta name="" />
 </head>
+
 <body>
 
+ 
     <div class="row">
         <header>
             <div class="col-8  col-xxl-8 ">
                 <small href="#" class="logo ">Black 938<small class="punto">.</small></small>
             </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                    <div class="col-4  col-xxl-4 text-end pt-3 pe-5">
-                        <a id="login" class="nav-link" href="#" data-toggle="modal" onclick="ingresa()" data-target="#signinModal">Ingresar</a> 
-                        <a id="salir" class="nav-link" onclick="cerrar()" style="display: none;"><i class="bi bi-person-fill">Salir</i></a>
-                    </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="col-4  col-xxl-4 text-end pt-3 pe-5">
+            
+                    <a id="login"  href="index.html" >Usuario</a> 
+                    <a id="admin" class="pe-2" href="#" data-toggle="modal" onclick="ingresa()" data-target="#signinModal">Ingresar</a> 
+                        
+                    <a id="salir" class="nav-link" onclick="cerrar()" style="display: none;"><i class="bi bi-person-fill">Salir</i></a>
+
+                    <div id="emailusuario" style="color: white;"></div>
+
+
+
+            
+                </div>
         </header>
     </div>
-
-
     <section class="banner">
     </section>
 
@@ -53,48 +64,7 @@
 
     <!-- contenido de la página -->
   <div id="contenido">
-    <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-6 col-md-6 ">
-                    <h1 >Solicite su Acceso</h1>
-                    <small>Balck 938. LisLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</small>
-                    <img class="img-fluid" id="ejecutiva" src="assets/img/biometric.jpg ">
-                </div>
-
-                <div class="col-12 col-lg-6 col-md-6  alert alert-secondary  ">
-                    <form>
-                        
-
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Correo</label>
-                                <input type="email" class="form-control shadow-lg" id="email" placeholder="ejemplo@email.cl">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Password</label>
-                                <input type="password" class="form-control shadow-lg" id="password" placeholder="">
-                            </div>
-                            
-                            <div class="text-end">
-                                <button type="button" class="btn btn-success" onclick="registrar()">
-                                    
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Autentificar</font>
-                                    </font>
-                                </button>
-                            </div>
-                            
-
-                        
-                    </form>
-                </div>
-            </div>
-        </div>
+    
 
   </div>
   <!-- contenido de la página -->
@@ -124,12 +94,23 @@
 
 
 
-    
-
-
-
 
     
+
+
+
+
+    <!-- Modal para mensajeria --> 
+    <div class="modal fade  " tabindex="-1" id="modalmensajes" aria-labelledby="modalmensajes" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modalcontenido">
+                
+            </div>
+        </div>
+    </div>
+
+
+
 
 
 <!-- Firebase  -->

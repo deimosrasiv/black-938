@@ -1,87 +1,75 @@
+var db = firebase.firestore();
 
-
-
-
-
-window.addEventListener("scroll", function() {
-    var header = document.querySelector("header")
+window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
     header.classList.toggle("sticky", window.scrollY > 0);
-})
-
+});
 
 function enviar() {
     var modal = "modalmensajes";
-    var nombre = document.getElementById("nombre").value
-    var email = document.getElementById("email").value
-    var textMessage = document.getElementById("textMessage").value
+    var nombre = document.getElementById("nombre").value;
+    var email = document.getElementById("email").value;
+    var textMessage = document.getElementById("textMessage").value;
     var contador = 0;
-
 
     if (nombre != "") {
         var contador = contador + 1;
-
-    } 
+    }
 
     if (email != "") {
         var contador = contador + 1;
-
-    } 
+    }
 
     if (contador > 1) {
-        let date = new Date()
-        let day = date.getDate()
-        let month = date.getMonth() + 1
-        let year = date.getFullYear()
-        let hora = date.getHours()
-        let minutos = date.getMinutes()
-        let segundos = date.getSeconds()
+        let date = new Date();
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let hora = date.getHours();
+        let minutos = date.getMinutes();
+        let segundos = date.getSeconds();
 
         if (hora < 10) {
-            hora1 = (`0${hora}`)
-
+            hora1 = `0${hora}`;
         } else {
-            hora1 = (`${hora}`)
+            hora1 = `${hora}`;
         }
 
         if (minutos < 10) {
-            minutos1 = (`0${minutos}`)
+            minutos1 = `0${minutos}`;
         } else {
-            minutos1 = (`${minutos}`)
+            minutos1 = `${minutos}`;
         }
 
         if (segundos < 10) {
-            segundos1 = (`0${segundos}`)
+            segundos1 = `0${segundos}`;
         } else {
-            segundos1 = (`${segundos}`)
+            segundos1 = `${segundos}`;
         }
-
 
         if (month < 10) {
-            var month1 = (`0${month}`)
+            var month1 = `0${month}`;
         } else {
-            var month1 = (`${month}`)
+            var month1 = `${month}`;
         }
-
 
         if (day < 10) {
-            var day1 = (`0${day}`)
+            var day1 = `0${day}`;
         } else {
-            var day1 = (`${day}`)
+            var day1 = `${day}`;
         }
 
+        var hora_solicitud = hora1 + ":" + minutos1 + ":" + segundos1;
+        var fecha_solicitud = day1 + "-" + month1 + `-${year}`;
 
-
-        var hora_solicitud = (hora1 + ":" + minutos1 + ":" + segundos1)
-        var fecha_solicitud = (day1 + "-" + month1 + `-${year}`)
-
-        var my_mensaje = `Se solicita ingreso a Black 938. : %0A %0A <b>Usuario:</b> <i>${nombre}</i>  %0A <b>Email:</b> <i>${email}</i> %0A <b>Mensaje:</b> <i>${textMessage}</i> %0A <b>Hora de solicitud:</b> <i>${hora_solicitud}</i>  %0A <b>Fecha de solicitud:</b> <i>${fecha_solicitud}</i>`
-        var my_mensaje2 = `Esto es solo una Prueba, no es real!!. Alerta de temperatura alta:`
+        var my_mensaje = `Se solicita ingreso a Black 938. : %0A %0A <b>Usuario:</b> <i>${nombre}</i>  %0A <b>Email:</b> <i>${email}</i> %0A <b>Mensaje:</b> <i>${textMessage}</i> %0A <b>Hora de solicitud:</b> <i>${hora_solicitud}</i>  %0A <b>Fecha de solicitud:</b> <i>${fecha_solicitud}</i>`;
+        var my_mensaje2 = `Esto es solo una Prueba, no es real!!. Alerta de temperatura alta:`;
 
         var token = "1995224836:AAFTI0sdAnVAs5fOjEKjPYu6aU3fe7iMsp0";
-        var chat_id_canal = -1001530134776 /* envia al canal */
-        var chat_id_master = 1942133499 /* envia solo al master */
+        var chat_id_canal = -1001530134776; /* envia al canal */
+        var chat_id_master = 1942133499; /* envia solo al master */
 
-        var url_solicita_black938 = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id_master}&text=${my_mensaje}&parse_mode=html`
+        var url_solicita_black938 = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id_master}&text=${my_mensaje}&parse_mode=html`;
         //console.log(url_solicita_black938);
 
         let api_black938 = new XMLHttpRequest();
@@ -90,15 +78,16 @@ function enviar() {
 
         console.log("Mensaje enviado a Telegram");
 
-        var nombre = document.getElementById("nombre").value
-        var email = document.getElementById("email").value
-        var textMessage = document.getElementById("textMessage").value
+        var nombre = document.getElementById("nombre").value;
+        var email = document.getElementById("email").value;
+        var textMessage = document.getElementById("textMessage").value;
         var cuerpo = "Se han enviado con exito el mensaje";
-        var cuerpo2 = "<stron>Black 938.</stron> le enviara un correo con las indicaciones para su ingreso."
+        var cuerpo2 =
+            "<stron>Black 938.</stron> le enviara un correo con las indicaciones para su ingreso.";
 
-        $('#' + modal).modal('show');
+        $("#" + modal).modal("show");
 
-            modalcontenido.innerHTML = `
+        modalcontenido.innerHTML = `
             <div class="modal-header">
                 <h5 class="modal-title">Mensaje Enviado</h5>
                 <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
@@ -112,14 +101,11 @@ function enviar() {
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 
               </div>
-            `
-        document.getElementById("nombre").value=""
-        document.getElementById("email").value=""
-        document.getElementById("textMessage").value=""
-
-
+            `;
+        document.getElementById("nombre").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("textMessage").value = "";
     } else {
-
         modalcontenido.innerHTML = `
             <div class="modal-header">
                 <h5 class="modal-title">Falta Información</h5>
@@ -131,25 +117,24 @@ function enviar() {
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
-            `
-        $('#' + modal).modal('show');
-
+            `;
+        $("#" + modal).modal("show");
     }
 }
-
 
 function countChars(obj) {
     var strLength = obj.value.length;
     var maxLength = obj.dataset.max;
-    var charRemain = (maxLength - strLength);
+    var charRemain = maxLength - strLength;
 
     if (charRemain < 0) {
-        document.getElementById("txaCount").innerHTML = 'Has excedido el límite de ' + maxLength + ' caracteres';
+        document.getElementById("txaCount").innerHTML =
+            "Has excedido el límite de " + maxLength + " caracteres";
     } else {
-        document.getElementById("txaCount").innerHTML = 'Caracteres Restantes: ' + charRemain;
+        document.getElementById("txaCount").innerHTML =
+            "Caracteres Restantes: " + charRemain;
     }
 }
-
 
 function ingresa() {
     var modal = "modalmensajes";
@@ -182,224 +167,284 @@ function ingresa() {
                     <button type="submit" class="btn btn-primary btn-block" onclick="logear()">Login</button>
                 </div>
             </div>
-            `
+            `;
 
-    $('#' + modal).modal('show');
-
+    $("#" + modal).modal("show");
 }
 
-
-function logear(){
-
-
-    var email = document.getElementById('signup-email').value;
-    var contrasena = document.getElementById('signup-password').value;
-    var error = document.getElementById('error_ingreso');
-
+function logear() {
+    var email = document.getElementById("signup-email").value;
+    var contrasena = document.getElementById("signup-password").value;
+    var error = document.getElementById("error_ingreso");
 
     console.log(email);
     console.log(contrasena);
 
-  firebase.auth().signInWithEmailAndPassword(email, contrasena)
-  .catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
+    firebase
+        .auth()
+        .signInWithEmailAndPassword(email, contrasena)
+        .catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
 
+            //console.log(errorCode);
+            //console.log(errorMessage);
 
-      //console.log(errorCode);
-      //console.log(errorMessage);
+            if (errorMessage == "The email address is badly formatted.") {
+                document.getElementById("error_ingreso").innerHTML = "";
+            }
 
-      if (errorMessage == "The email address is badly formatted."){
-        
-           document.getElementById('error_ingreso').innerHTML="";        
+            if (
+                errorMessage ==
+                "The password is invalid or the user does not have a password."
+            ) {
+                document.getElementById("error_ingreso").innerHTML =
+                    "La contraseña no es válida o el usuario no tiene contraseña.";
+            }
 
-      }
+            if (
+                errorMessage ==
+                "There is no user record corresponding to this identifier. The user may have been deleted."
+            ) {
+                document.getElementById("error_ingreso").innerHTML =
+                    "No existe registro de usuario correspondiente a este identificador. Es posible que el usuario haya sido eliminado.";
+            }
 
-      if (errorMessage == "The password is invalid or the user does not have a password."){
-         
-            document.getElementById('error_ingreso').innerHTML="La contraseña no es válida o el usuario no tiene contraseña.";
-      }
+            if (
+                errorMessage ==
+                "Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later."
+            ) {
+                document.getElementById("error_ingreso").innerHTML =
+                    "El acceso a esta cuenta se ha inhabilitado temporalmente debido a muchos intentos fallidos de inicio de sesión. Puede restaurarlo inmediatamente restableciendo su contraseña o puede volver a intentarlo más tarde.";
+            }
+        });
 
-      if (errorMessage == "There is no user record corresponding to this identifier. The user may have been deleted."){
-        
-            document.getElementById('error_ingreso').innerHTML="No existe registro de usuario correspondiente a este identificador. Es posible que el usuario haya sido eliminado.";
-      }
-
-      if (errorMessage == "Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later."){
-
-        document.getElementById('error_ingreso').innerHTML="El acceso a esta cuenta se ha inhabilitado temporalmente debido a muchos intentos fallidos de inicio de sesión. Puede restaurarlo inmediatamente restableciendo su contraseña o puede volver a intentarlo más tarde.";
-
-      }
-
-     
-});
-
-cierraModal()
-
-
-
-
-  }
-
-function cierraModal(){
-    firebase.auth().onAuthStateChanged(function(user) {
-   if (user) {
-     location.reload();
- 
-    } else {
-
-    }  
-  })
+    cierraModal();
 }
 
+function cierraModal() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            location.reload();
+        } else {
+        }
+    });
+}
 
 observador();
 
-function observador(){
+function observador() {
+    //var radio = document.getElementById(flexCheckAdmin).checked;
+    //console.log(radio);
 
-  firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-     console.log('existe usuario activo')
-    //apareceUser(user);
-    // console.log(user.email);
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            console.log("existe usuario activo");
+            //apareceUser(user);
+            //console.log(user);
 
-     
-     aparece(user);
-    // User is signed in.
-    var displayName = user.displayName;
-    var email = user.email;
-    var emailVerified = user.emailVerified;
-  //console.log(emailVerified);
- 
-    var photoURL = user.photoURL;
-    var isAnonymous = user.isAnonymous;
-    var uid = user.uid;
-    //console.log(email)
+            if (user.emailVerified == null) {
+                contenido.innerHTML = `
+                    <div class="container">
+                        <h1 id="titulo_usuario" class="text-center"></h1>
+                    </div>
+                `;
 
-    var providerData = user.providerData;
-    // ...
-  } else {
-    // User is signed out.
-    //console.log('no existe usuario activo')
+                document.getElementById("titulo_usuario").innerHTML =
+                    "no estas verificado.";
+            }
+            console.log(user.email);
+            apareceuser();
+        }
+    });
+
+    contenido.innerHTML = `
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-lg-6 col-md-6 ">
+                                <h1 >Solicite su Acceso</h1>
+                                <small>Balck 938. Plataforma para consultar el estado, del colaborador, entregando información clara y detalla a la hora de tomar una decisión.
+                                 Black 938. te entregara la información en cualquier parte donde este, con solo tener acceso a internet y las credenciales necesarias para el ingreso.</small>
+                                <img class="img-fluid" id="ejecutiva" src="assets/img/ejecutiva.jpg ">
+                            </div>
+
+                            <div class="col-12 col-lg-6 col-md-6  alert alert-secondary  ">
+                                <form>
+                                    <div class="card alert  " role="alert">
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label ">Nombre Apellidos</label>
+                                            <input type="email" class="form-control shadow-lg text-capitalize" id="nombre" placeholder="Juan Quintanilla Paredes" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                            <input type="email" class="form-control shadow-lg" id="email" placeholder="ejemplo@email.cl" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Indique el motivo de su solicitud.</label>
+                                            <textarea class="form-control shadow-lg" id="textMessage" onkeypress="countChars(this);" onkeydown="countChars(this);" required data-max=300 maxlength=300 style="width:100%; height: 200px ;align-items: center;" aria-label="With textarea"></textarea>
+                                            <span>
+                                                <p class="mb-0" style="align-content: center; font-size: 10px; color: black;"><small id="txaCount"></small></p>
+                                            </span>
+                                            <small class="fw-light"></small>
+                                        </div>
+                                        <div class="text-end">
+                                            <button type="button" class="btn btn-success" onclick="enviar()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"></path>
+                                                </svg>
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">Enviar</font>
+                                                </font>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                `;
+}
 
 
-
-    //document.getElementById("salir").style = "display: none";
+  function apareceuser(){
+    console.log ("estmos dentro de aparece user")
+     document.getElementById("login").style = "display: none";
+    document.getElementById("salir").style = "display: online";
+    document.getElementById("admin").style = "display: none";
     contenido.innerHTML=`
+                    <div class="container">
+                        <div class="col-12 col-lg-12 col-md-12  alert alert-secondary  ">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Rut</label>
+                                <input type="text" class="form-control shadow-lg" id="rut" placeholder="Sin punto, sin guión">
+                            </div>
 
-            <div class="container">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Nombres</label>
+                                <input type="text" class="form-control shadow-lg" id="nombres" placeholder="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Apellidos</label>
+                                <input type="text" class="form-control shadow-lg" id="apellidos" placeholder="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Cargo</label>
+                                <input type="text" class="form-control shadow-lg" id="cargo" placeholder="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Area</label>
+                                <input type="text" class="form-control shadow-lg" id="area" placeholder="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Responsable</label>
+                                <input type="text" class="form-control shadow-lg" id="responsable" placeholder="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Observaciones</label>
+                                <input type="text" class="form-control shadow-lg" id="observaciones" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
+                `;
+  }
+
+function cerrar() {
+    firebase
+        .auth()
+        .signOut()
+        .then(function () {
+            console.log("Saliendo. . .");
+            document.getElementById("login").style = "display: online";
+            document.getElementById("salir").style = "display: none";
+            document.getElementById("admin").style = "display: online";
+            location.reload();
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+function apareceadmin(user) {
+    contenido.innerHTML = `
+                 <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6 col-md-6 ">
-                    <h1 >Solicite su Acceso</h1>
+                    <h1 >Envío de Correos</h1>
                     <small>Balck 938. LisLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</small>
-                    <img class="img-fluid" id="ejecutiva" src="assets/img/ejecutiva.jpg ">
+                    <img class="img-fluid" id="ejecutiva" src="assets/img/biometric.jpg ">
                 </div>
 
                 <div class="col-12 col-lg-6 col-md-6  alert alert-secondary  ">
                     <form>
-                        <div class="card alert  " role="alert">
+                        
+
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label ">Nombre Apellidos</label>
-                                <input type="email" class="form-control shadow-lg text-capitalize" id="nombre" placeholder="Juan Quintanilla Paredes" required>
+                                <label for="exampleFormControlInput1" class="form-label">Correo</label>
+                                <input type="email" class="form-control shadow-lg" id="email" placeholder="ejemplo@email.cl">
                             </div>
+
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Email</label>
-                                <input type="email" class="form-control shadow-lg" id="email" placeholder="ejemplo@email.cl" required>
+                                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                                <input type="password" class="form-control shadow-lg" id="password" placeholder="">
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Indique el motivo de su solicitud.</label>
-                                <textarea class="form-control shadow-lg" id="textMessage" onkeypress="countChars(this);" onkeydown="countChars(this);" required data-max=300 maxlength=300 style="width:100%; height: 200px ;align-items: center;" aria-label="With textarea"></textarea>
-                                <span>
-                                    <p class="mb-0" style="align-content: center; font-size: 10px; color: black;"><small id="txaCount"></small></p>
-                                </span>
-                                <small class="fw-light"></small>
+
+                            <div class="mb-3" id="nombre" style="display: none;" >
+                                <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                                <input type="nombre" class="form-control shadow-lg" id="nombe" placeholder="">
                             </div>
+                            <div class="container py-3">
+                                <div class="mb-3">
+                                    <input name="useradmin" id="asigUser" type="radio" checked onclick="sinnombre()" value="Usuario" ">
+                                        <small class="form-label">
+                                            Usuario
+                                        </small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input name="useradmin" id="asigAdmin" type="radio" onclick="nombre()" value="Administrador" ">
+                                        <small class="form-label ">
+                                            Administrador
+                                        </small>
+                                </div>
+                            </div>
+
                             <div class="text-end">
-                                <button type="button" class="btn btn-success" onclick="enviar()">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"></path>
-                                    </svg>
+                                <button type="button" class="btn btn-success" onclick="registrar()">
+                                    
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Enviar</font>
+                                        <font style="vertical-align: inherit;">Autentificar</font>
                                     </font>
                                 </button>
                             </div>
-                        </div>
+                            <div class="container" id="msn_verificacion">
+                            </div>
                     </form>
                 </div>
             </div>
         </div>
-    
-    
-  
-    `;
-    // ...
-  }
-});
-}
+            `;
 
-
-
-
-
-function cerrar(){
-  firebase.auth().signOut()
-  .then(function(){
-    console.log('Saliendo. . .')
-    document.getElementById("login").style = "display: online";
-    document.getElementById("salir").style = "display: none";
-
-  })
-  .catch(function(error){
-    console.log(error)
-  })
-}
-
-
-
-
-
-
-function aparece(user){
-  var user = user;
-  console.log("estamos dentro del Contenido");
-
-  //console.log(user);
-  var contenido=document.getElementById('contenido');
-
- // console.log(user.emailVerified);
-
-  
-  if (user.emailVerified){
     document.getElementById("salir").style = "display: online";
     document.getElementById("login").style = "display: none";
-
-    //var rr2 = document.getElementById("titulo_usuario").innerHTML;
-    
-    //document.getElementById('modalingresa');
-    
-    //location.reload();
-    contenido.innerHTML=`
-
-<div class="container">
-    <h1 id="titulo_usuario" class="text-center"></h1>
-</div>
-    `;
-    document.getElementById("titulo_usuario").innerHTML="Felicitasiones ya estas dentro de Black-938."
- console.log(user.emailVerified);
- document.getElementById("salir").style = "display: online";
-    document.getElementById("login").style = "display: none";
-
-   
-  }
-
-  
-
+    document.getElementById("admin").style = "display: none";
 }
 
+function nombre() {
+    document.getElementById("nombre").style.display = "inline";
+}
+
+function sinnombre() {
+    document.getElementById("nombre").style.display = "none";
+}
