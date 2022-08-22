@@ -2,7 +2,7 @@
 
 Lista Negra
 
-Proyecto para compratir base de datos de colaboradores en el Holdin Corporativo, Con la finalidad
+Proyecto para compartir base de datos de colaboradores en el Holdin Corporativo, Con la finalidad
 de al momento de hacer entrevistas de contratacion, en los distintyos departamentos y empresas, poder 
 verificar del colaborador a contratar, y si este se encuentra vetado, para cualquier contratacion, en la empresa
 por mal comportamiento o por acciones inseguras en la operatividad de la maquinaria, acoso, o cualquier actividad 
