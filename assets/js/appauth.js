@@ -378,112 +378,121 @@ function observador() {
                                                                                                         required
                                                                                                     />
                                                                                                     <option selected>  Seleccione el Cargo del Colaborador  </option>
-                                                                                                        <option>	ACTOR Y ASISTENTE SHOW	</option>
-                                                                                                        <option>	ADMINISTRATIVO	</option>
-                                                                                                        <option>	ADMINISTRATIVO CONTABLE	</option>
-                                                                                                        <option>	ADMPARQUE Y COMPUTACION	</option>
-                                                                                                        <option>	ANALISTA CONTABLE	</option>
-                                                                                                        <option>	ANALISTA DE CUENTAS	</option>
-                                                                                                        <option>	ANFITRIÓN ACTIVIDADES ARTÍSTICAS	</option>
-                                                                                                        <option>	ANFITRIÓN DE PARQUE	</option>
-                                                                                                        <option>	Anfitrión Polifuncional	</option>
-                                                                                                        <option>	ANFITRIONA CUMPLEAÑOS Y SC	</option>
-                                                                                                        <option>	ASEADOR	</option>
-                                                                                                        <option>	ASEADOR BAÑOS PARQUE	</option>
-                                                                                                        <option>	ASEADOR PARQUE	</option>
-                                                                                                        <option>	ASEADOR RESTAURANT	</option>
-                                                                                                        <option>	ASIST CASINO Y MODVTA INT	</option>
-                                                                                                        <option>	ASISTENTE BODEGA	</option>
-                                                                                                        <option>	ASISTENTE CENTRAL TELEFÓNICA	</option>
-                                                                                                        <option>	ASISTENTE CONTABLE	</option>
-                                                                                                        <option>	ASISTENTE DE ACCESO	</option>
-                                                                                                        <option>	ASISTENTE DE INFORMÁTICA	</option>
-                                                                                                        <option>	ASISTENTE DE OBRAS CIVILES Y MONTAJE	</option>
-                                                                                                        <option>	ASISTENTE DE PARQUE	</option>
-                                                                                                        <option>	ASISTENTE INFORMÁTICA	</option>
-                                                                                                        <option>	ASISTENTE OPERADOR MANTENEDOR	</option>
-                                                                                                        <option>	Asistente Parque	</option>
-                                                                                                        <option>	ASISTENTE RECURSOS HUMANOS	</option>
-                                                                                                        <option>	ASISTENTE SERVICIO AL CLIENTE	</option>
-                                                                                                        <option>	ASISTENTE TESORERIA	</option>
-                                                                                                        <option>	ASISTENTE SERVICIOS DE ALIMENTACION	</option>
-                                                                                                        <option>	AUDITOR CALIDAD ALIMENTACIÓN	</option>
-                                                                                                        <option>	AUXILIAR ALIMENTACION	</option>
-                                                                                                        <option>	AUXILIAR CONTABLE	</option>
-                                                                                                        <option>	AUXILIAR DE CASINO	</option>
-                                                                                                        <option>	AYUDANTE CONTABLE	</option>
-                                                                                                        <option>	AYUDANTE DE COCINA	</option>
-                                                                                                        <option>	Ayudante del operador de Juegos	</option>
-                                                                                                        <option>	BRIGADISTA	</option>
-                                                                                                        <option>	CAJERO	</option>
-                                                                                                        <option>	CAPTADOR DE VENTAS	</option>
-                                                                                                        <option>	CARPINTERO MANTENCION	</option>
-                                                                                                        <option>	CHEF Y ENC CASINO, CCALIDAD	</option>
-                                                                                                        <option>	CHOFER	</option>
-                                                                                                        <option>	CONTADOR	</option>
-                                                                                                        <option>	CUIDADOR VEHICULOS	</option>
-                                                                                                        <option>	Eléctrico	</option>
-                                                                                                        <option>	ELECTRICO MANTENCIÓN	</option>
-                                                                                                        <option>	ELECTROMECANICO	</option>
-                                                                                                        <option>	ELECTRÓNICO	</option>
-                                                                                                        <option>	ENCARGADA ACT ARTISTICAS	</option>
-                                                                                                        <option>	ENCARGADA PLAZA INFANTIL	</option>
-                                                                                                        <option>	ENCARGADO MODULO ALIMENTACIÓN	</option>
-                                                                                                        <option>	EXPERTO PREV DE RIESGOS	</option>
-                                                                                                        <option>	GUARDIA DE SEGURIDAD	</option>
-                                                                                                        <option>	Heladería Savory Palacio	</option>
-                                                                                                        <option>	INGENIERO GESTION COMERCIAL	</option>
-                                                                                                        <option>	JARDINERO	</option>
-                                                                                                        <option>	JEFE COMPRAS	</option>
-                                                                                                        <option>	JEFE VENTA SOUVENIR	</option>
-                                                                                                        <option>	JEFE ZONA ALIMENTACIÓN	</option>
-                                                                                                        <option>	JUNIOR	</option>
-                                                                                                        <option>	MAESTRO DE COCINA	</option>
-                                                                                                        <option>	Mecánico	</option>
-                                                                                                        <option>	MECANICO MANTENCIÓN	</option>
-                                                                                                        <option>	MOLDEADOR FIBRA DE VIDRIO	</option>
-                                                                                                        <option>	Operacion	</option>
-                                                                                                        <option>	OPERADOR ALIMENTACIÓN SENIOR	</option>
-                                                                                                        <option>	Operador Ayudante	</option>
-                                                                                                        <option>	OPERADOR CASTILLO ENCANTADO	</option>
-                                                                                                        <option>	Operador Comida Rápida FULL	</option>
-                                                                                                        <option>	OPERADOR DE BODEGA 	</option>
-                                                                                                        <option>	Operador de Comida Rapida 	</option>
-                                                                                                        <option>	OPERADOR MANTENEDOR	</option>
-                                                                                                        <option>	OPERADOR MAQUILLADOR	</option>
-                                                                                                        <option>	OPERADOR PARQ ENTREY BODEGA	</option>
-                                                                                                        <option>	OPERADOR PARQUE ENTRETENCION	</option>
-                                                                                                        <option>	Operador Parque Entretención	</option>
-                                                                                                        <option>	PRODUCCIÓN DE EVENTOS	</option>
-                                                                                                        <option>	PRODUCCION ESCOLAR	</option>
-                                                                                                        <option>	PRODUCT MANAGER	</option>
-                                                                                                        <option>	PROMOTORA BRAZALETES	</option>
-                                                                                                        <option>	RELATOR INTERNO	</option>
-                                                                                                        <option>	SECRETARIA	</option>
-                                                                                                        <option>	SECRETARIA GERENCIA GENERAL	</option>
-                                                                                                        <option>	SUPERVISOR ALIMENTACIÓN	</option>
-                                                                                                        <option>	SUPERVISOR DE ASEO	</option>
-                                                                                                        <option>	SUPERVISOR DE MANTENCIÓN	</option>
-                                                                                                        <option>	SUPERVISOR DE OPERACIONES	</option>
-                                                                                                        <option>	SUPERVISOR ZONA SEGURIDAD	</option>
-                                                                                                        <option>	Team Covid	</option>
-                                                                                                        <option>	TÉCNICO ELÉCTRICO	</option>
-                                                                                                        <option>	Telefonista	</option>
-                                                                                                        <option>	TESORERA	</option>
-                                                                                                        <option>	Tesoreria	</option>
-                                                                                                        <option>	VENDEDOR	</option>
-                                                                                                        <option>	VIGILANTE	</option>
-                                                                                                        <option>	VIGILANTE PRIVADO	</option>
-                                                                                                        <option>	Barback	</option>
-                                                                                                        <option>	Generico	</option>
-                                                                                                        <option>	Asistente de Servicio al Cliente	</option>
-                                                                                                        <option>	Asistente de Seguridad	</option>
+                                                                                                    <option>	Abogado	</option>
+                                                                                                    <option>	Actor y Asistente Show	</option>
+                                                                                                    <option>	Administrativo	</option>
+                                                                                                    <option>	Administrativo de Compras	</option>
+                                                                                                    <option>	Analista Contable	</option>
+                                                                                                    <option>	Analista de Procesos	</option>
+                                                                                                    <option>	Analista de Reclutamiento y Selección	</option>
+                                                                                                    <option>	Analista de Remuneraciones	</option>
+                                                                                                    <option>	Analista Seleccion y Capacitacion	</option>
+                                                                                                    <option>	Analista Software	</option>
+                                                                                                    <option>	Anfitrion Act. Artisticas	</option>
+                                                                                                    <option>	Anfitrion de Parque	</option>
+                                                                                                    <option>	Aseador	</option>
+                                                                                                    <option>	Asesor Senior Mantención	</option>
+                                                                                                    <option>	Asistente Bodega	</option>
+                                                                                                    <option>	Asistente Central Telefonica	</option>
+                                                                                                    <option>	Asistente Comercial	</option>
+                                                                                                    <option>	Asistente Contable	</option>
+                                                                                                    <option>	Asistente de Alimentos y Bebidas	</option>
+                                                                                                    <option>	Asistente de Compras	</option>
+                                                                                                    <option>	Asistente de Eventos	</option>
+                                                                                                    <option>	Asistente de Logística	</option>
+                                                                                                    <option>	Asistente de Obras Civiles Montaje	</option>
+                                                                                                    <option>	Asistente de Personas	</option>
+                                                                                                    <option>	Asistente de Remuneraciones	</option>
+                                                                                                    <option>	Asistente Grandes Cuentas	</option>
+                                                                                                    <option>	Asistente Informatica	</option>
+                                                                                                    <option>	Asistente MK Digital	</option>
+                                                                                                    <option>	Asistente Operador Mantenedor	</option>
+                                                                                                    <option>	Asistente Parque	</option>
+                                                                                                    <option>	Asistente Servicio Cliente	</option>
+                                                                                                    <option>	Auditor Interno	</option>
+                                                                                                    <option>	Auxiliar de Casino	</option>
+                                                                                                    <option>	Ayudante Contable	</option>
+                                                                                                    <option>	Ayudante de Cocina	</option>
+                                                                                                    <option>	Ayudante de Recursos Humanos	</option>
+                                                                                                    <option>	Ayudante Tesoreria	</option>
+                                                                                                    <option>	Brigadista	</option>
+                                                                                                    <option>	Cajero	</option>
+                                                                                                    <option>	Carpintero Mantencion	</option>
+                                                                                                    <option>	Chofer	</option>
+                                                                                                    <option>	Consultor Externo BI	</option>
+                                                                                                    <option>	Contador	</option>
+                                                                                                    <option>	Coordinador Emergencias	</option>
+                                                                                                    <option>	Director de Arte	</option>
+                                                                                                    <option>	Diseñador Grafico	</option>
+                                                                                                    <option>	Electrico	</option>
+                                                                                                    <option>	Electronico	</option>
+                                                                                                    <option>	Encargado Adm. de Personas y Remuneraciones	</option>
+                                                                                                    <option>	Encargado de Bodega	</option>
+                                                                                                    <option>	Encargado de Capacitacion	</option>
+                                                                                                    <option>	Encargado de Obras Civiles	</option>
+                                                                                                    <option>	Encargado de Remuneraciones	</option>
+                                                                                                    <option>	Encargado de Seleccion	</option>
+                                                                                                    <option>	Encargado Modulo Alimentacion	</option>
+                                                                                                    <option>	Experto en Prevención de Riesgos	</option>
+                                                                                                    <option>	Guardia de Seguridad	</option>
+                                                                                                    <option>	Housekeeper	</option>
+                                                                                                    <option>	Housekeeper y Cocinera	</option>
+                                                                                                    <option>	Ingeniero Control de Gestion	</option>
+                                                                                                    <option>	Ingeniero en Alimentos	</option>
+                                                                                                    <option>	Ingeniero Infraestructura TI	</option>
+                                                                                                    <option>	Jardinero	</option>
+                                                                                                    <option>	Jefe Administración de Personas	</option>
+                                                                                                    <option>	Jefe de Informatica	</option>
+                                                                                                    <option>	Jefe de Local	</option>
+                                                                                                    <option>	Jefe de Remuneraciones	</option>
+                                                                                                    <option>	Jefe de Souvenir	</option>
+                                                                                                    <option>	Jefe Seguridad	</option>
+                                                                                                    <option>	Jefe Servicio Cliente	</option>
+                                                                                                    <option>	Jefe Técnico	</option>
+                                                                                                    <option>	Junior	</option>
+                                                                                                    <option>	Key User	</option>
+                                                                                                    <option>	Maestro de Cocina	</option>
+                                                                                                    <option>	Mantenedor Equipos A&B	</option>
+                                                                                                    <option>	Mantenedor Piscinas	</option>
+                                                                                                    <option>	Mecanico	</option>
+                                                                                                    <option>	Moldeador Fibra de Vidrio	</option>
+                                                                                                    <option>	Operador Alimentacion Senior	</option>
+                                                                                                    <option>	Operador Ayudante	</option>
+                                                                                                    <option>	Operador Castillo Encantado	</option>
+                                                                                                    <option>	Operador de Bodega	</option>
+                                                                                                    <option>	Operador Mantenedor	</option>
+                                                                                                    <option>	Operador Maquillador	</option>
+                                                                                                    <option>	Operador Parque Entretencion	</option>
+                                                                                                    <option>	Operador Parque y Bodega	</option>
+                                                                                                    <option>	Planificador	</option>
+                                                                                                    <option>	Produccion de Eventos	</option>
+                                                                                                    <option>	Produccion Escenografica	</option>
+                                                                                                    <option>	Programador Analista	</option>
+                                                                                                    <option>	Recepcionista	</option>
+                                                                                                    <option>	Secretaria	</option>
+                                                                                                    <option>	Secretaria Gerencia General	</option>
+                                                                                                    <option>	Secretaria Presidencia	</option>
+                                                                                                    <option>	Soldador	</option>
+                                                                                                    <option>	Sub Administrador	</option>
+                                                                                                    <option>	Sub Encargado Modulo Venta	</option>
+                                                                                                    <option>	Sub Encargado Servicio al Cliente	</option>
+                                                                                                    <option>	Subjefe de Local	</option>
+                                                                                                    <option>	Subjefe de Seguridad	</option>
+                                                                                                    <option>	Supervisor Control de Procesos y Protocolos	</option>
+                                                                                                    <option>	Supervisor de Alimentos y Bebidas	</option>
+                                                                                                    <option>	Supervisor de Aseo	</option>
+                                                                                                    <option>	Supervisor de Bodega	</option>
+                                                                                                    <option>	Supervisor de Compras	</option>
+                                                                                                    <option>	Supervisor de Mantencion	</option>
+                                                                                                    <option>	Supervisor de Operaciones	</option>
+                                                                                                    <option>	Supervisor de Seguridad	</option>
+                                                                                                    <option>	Supervisor Zona Seguridad	</option>
+                                                                                                    <option>	Técnico Eléctrico Medio Mantención	</option>
+                                                                                                    <option>	Técnico Eléctrico Senior Mantención	</option>
+                                                                                                    <option>	Técnico Mecánico Medio Mantención	</option>
+                                                                                                    <option>	Técnico Mecánico Senior Mantención	</option>
+                                                                                                    <option>	Traductor y Protocolo	</option>
                                                                                                     </select>
-
-
-
-
-
 
                                                                                                 </div>
                                                                                                     <p class="px-4" style="font-size: 10px;">
