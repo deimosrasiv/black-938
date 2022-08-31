@@ -1,0 +1,44 @@
+<form>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Correo</label>
+                            <input type="email" class="form-control shadow-lg" id="email" placeholder="ejemplo@email.cl">
+                        </div>
+              
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Password</label>
+                            <input type="password" class="form-control shadow-lg" id="password" placeholder="">
+                        </div>
+              
+                        <div class="mb-3" id="nombre" style="display: none;" >
+                            <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                            <input type="nombre" class="form-control shadow-lg" id="nombe" placeholder="">
+                        </div>
+              
+                        <div class="container py-3">
+                          <div class="mb-3">
+                            <input name="useradmin" id="asigUser" type="radio" checked onclick="sinnombre()" value="Usuario" ">
+                                <small class="form-label">
+                                    Usuario
+                                </small>
+                          </div>
+              
+                          <div class="mb-3">
+                            <input name="useradmin" id="asigAdmin" type="radio" onclick="nombre()" value="Administrador" ">
+                                <small class="form-label ">
+                                    Administrador
+                                </small>
+                          </div>
+                        </div>
+              
+                        <div class="text-end">
+                            <button type="button" class="btn btn-success" onclick="registrar()">
+                                
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Autentificar</font>
+                                </font>
+                            </button>
+                        </div>
+                        <div class="container" id="msn_verificacion">
+                        </div>
+
+                      </form>

@@ -240,6 +240,7 @@ function observador() {
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
+            document.getElementById("emailusuario").innerHTML = user.email;
             console.log("existe usuario activo");
             //apareceUser(user);
             //console.log(user);
@@ -309,48 +310,256 @@ function observador() {
 
   function apareceuser(){
     console.log ("estmos dentro de aparece user")
-     document.getElementById("login").style = "display: none";
+    document.getElementById("login").style = "display: none";
     document.getElementById("salir").style = "display: online";
     document.getElementById("admin").style = "display: none";
+      
     contenido.innerHTML=`
-                    <div class="container">
-                        <div class="col-12 col-lg-12 col-md-12  alert alert-secondary  ">
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Rut</label>
-                                <input type="text" class="form-control shadow-lg" id="rut" placeholder="Sin punto, sin guión">
+
+    <div class="container">
+    <div class="col-12 col-md-12 col-lg-12 col xl-6 xxl-6  alert alert-secondary  ">
+
+        <div class="container-fluid">
+            <div class="form-group mb-0">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-12 col-xl-6 col-lg-6 col-md-6 ">
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-solid fa-id-badge text-big"></i>
+                                </span>
+                        
+                                <form name="miFormulario">
+                                    <input
+                                    name="rut"
+                                    id="rut"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Ingrese un RUT"
+                                    required oninput="checkRut(this)"
+                                    onkeypress="return isNumber(event)"
+                                    required ="checkRut(this)"
+                                    maxlength="12"
+                                    required
+                                    />
+                                </form>
+                                <i id="vbok" class="fa-solid fa-check fa-2x px-3" style="color:green; display:none"></i>
+                                <i id="vbnook" class="fa-solid fa-xmark fa-2x px-3 " style="color:red; display:none" ></i>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Nombres</label>
-                                <input type="text" class="form-control shadow-lg" id="nombres" placeholder="">
+                            <div class="col-12  text-left">
+                                <p class="py-2"style="font-size: 10px;" id="mensaje">
+                                    Ingrese el Rut sin puntos y sin guión.
+                                </p>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Apellidos</label>
-                                <input type="text" class="form-control shadow-lg" id="apellidos" placeholder="">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Cargo</label>
-                                <input type="text" class="form-control shadow-lg" id="cargo" placeholder="">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Area</label>
-                                <input type="text" class="form-control shadow-lg" id="area" placeholder="">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Responsable</label>
-                                <input type="text" class="form-control shadow-lg" id="responsable" placeholder="">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Observaciones</label>
-                                <input type="text" class="form-control shadow-lg" id="observaciones" placeholder="">
+                            <div class="col-12 my-3 px-auto">
+                                <button
+                                   id="buscatabla"
+                                    type="button"
+                                    class="btn btn-primary "
+                                    onclick="buscatabla()">
+                                    <i class="fas fa-check-circle"></i> Buscar
+                                </button>
                             </div>
                         </div>
+
+                        <div class="col-12 col-xl-4 col-lg-6 col-md-6  my-3 px-auto" style="display:none">
+                            <div id="alerta" class="alert alert-info   fade show text-center" role="alert">
+                                <strong>
+                                    Atención!
+                                </strong>
+
+                                <small id="mensaje">
+                                    Ingrese el Rut sin puntos y sin guión.
+                                </small>
+                                    
+                            </div> 
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="container-fluid">
+            <div class="form-group mb-0">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-auto mx-0 my-2"> 
+                        
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                <i class="fa-solid fa-person"></i>
+                                    
+                                </span>
+
+                                
+                                <input name="nombre" id="inputnombres" type="text"  class=" form-control text-capitalize"    placeholder="Nombres"
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Nombres"
+                                    data-bs-content="Ingrese los 2 Nombres del Colaborador.!"
+                                    required
+                                    disabled/>
+
+                                    
+
+                                <input name="apellido" id="inputapellidos" type="text" class="form-control text-capitalize "  placeholder=" Apellidos" 
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Apellidos"
+                                    data-bs-content="Ingrese los 2 Apellidos del Colaborador.!"
+                                    disabled
+                                    required/>
+                                    
+                            </div>
+                                <p class="px-4" style="font-size: 10px;">
+                                    Nombres y Apellidos.
+                                </p>
+                        </div>
+
+
+
+                        <div class="col-auto my-2"> 
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                </span>
+
+                                <input name="fecha" id="inputfecha" type="text"  class=" form-control"    placeholder="Fecha"
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Fecha"
+                                    required
+                                    disabled/>
+                            </div>
+                            <p class="px-4" style="font-size: 10px;">
+                                Fecha.
+                            </p>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div> 
+        </div>                     
+
+        <div class="container-fluid">
+             <div class="form-group mb-0">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-auto my-2"> 
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                <i class="fa-regular fa-address-book"></i>
+                                </span>
+                                <input name="nombre" id="inputcargo" type="text"  class=" form-control text-capitalize"    placeholder="Cargo"
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Cargo"
+                                    required
+                                    disabled/>
+                            </div>
+                            <p class="px-4" style="font-size: 10px;">
+                                Cargo.
+                            </p>
+                        </div>
+
+                        <div class="col-auto my-2"> 
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                <i class="fa-regular fa-address-book"></i>
+                                </span>
+
+                                <input name="nombre" id="inputcentrocosto" type="text"  class=" form-control text-capitalize"    placeholder="centro costo"
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Area"
+                                    required
+                                    disabled/>
+                            </div>
+                            <p class="px-4" style="font-size: 10px;">
+                                Centro Costo.
+                            </p>
+                        </div>
+
+                        <div class="col-auto my-2"> 
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                
+                                <i class="fa-brands fa-searchengin"></i>   
+                                </span>
+
+                                <input name="nombre" id="inputcausa" type="text"  class=" form-control text-capitalize"    placeholder="Causa"
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Causa"
+                                    required
+                                    disabled/>
+                            </div>
+                            <p class="px-4" style="font-size: 10px;">
+                                Causa.
+                            </p>
+                        </div>
+
+
+
+
+                        <div class="col-auto my-2"> 
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                <i class="fa-solid fa-person-military-pointing"></i>
+                                </span>
+
+                                <input name="responzable" id="inputresponzable" type="text"  class=" form-control"    placeholder="Responzable"
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Respozable"
+                                    required
+                                    disabled/>
+                            </div>
+                            <p class="px-4" style="font-size: 10px;">
+                                Responzable.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="container-fluid">
+             <div class="form-group mb-0">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="input-group input-group-alternative">
+                            <span class="input-group-text" id="basic-addon1">
+                                Observaciones
+                            </span>
+                            <textarea class="form-control shadow-lg" id="inputobser" onkeypress="countChars(this);" 
+                            onkeydown="countChars(this);"
+                            required data-max=300 maxlength=300
+                            style="width:100%;
+                            height: 200px ;align-items: center;"
+                            aria-label="With textarea"
+                            disabled
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+                    
 
                 `;
   }
@@ -448,3 +657,59 @@ function nombre() {
 function sinnombre() {
     document.getElementById("nombre").style.display = "none";
 }
+
+
+
+
+
+function buscatabla() {
+var rutbuscar = document.getElementById("rut").value;
+    console.log(rutbuscar);
+    document.getElementById("inputnombres").value = "";
+    document.getElementById("inputapellidos").value = "";
+    document.getElementById("inputcargo").value = ""; 
+    document.getElementById("inputcentrocosto").value = ""; 
+    document.getElementById("inputresponzable").value = "";
+    document.getElementById("inputcausa").value = ""; 
+    document.getElementById("inputobser").value = ""; 
+
+
+    db.collection("blacklist").where("rut", "==", rutbuscar).onSnapshot((querySnapshot) => {
+
+            querySnapshot.forEach((doc) => {
+               
+                if(doc.id!= ""){
+                document.getElementById("inputnombres").value=doc.data().nombres;
+                document.getElementById("inputapellidos").value=doc.data().apellidos;
+                document.getElementById("inputcargo").value=doc.data().cargo;
+                document.getElementById("inputcentrocosto").value=doc.data().centrocosto;
+                document.getElementById("inputresponzable").value=doc.data().registra;
+                document.getElementById("inputcausa").value=doc.data().causa;
+                document.getElementById("inputobser").value = doc.data().observaciones;
+                document.getElementById("inputresponzable").value = doc.data().responzable;
+                    var fecha = doc.data().fecha;
+                    var nueva = fecha.split(" ")[0];
+                    var format = nueva.split("-");
+                    var ultima = format[2] + '-' + format[1] + '-' + format[0]
+                    
+                    
+                    document.getElementById("inputfecha").value = ultima;
+                
+                console.log(doc.data().fecha);
+                    console.log(doc.id);
+                    console.log(doc.data().nombres);
+                    console.log(doc.data().apellidos);
+                    console.log(doc.data().responzable);
+                    console.log(doc.data().fecha);
+
+                } else {
+                    console.log("no hay datos para mostrar");
+
+                }
+
+                
+            })
+        })
+    
+}
+

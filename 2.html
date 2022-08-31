@@ -1,0 +1,417 @@
+
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Icono de la página -->
+    <link rel="icon" href="/assets/img/favicon.ico" type="ico" sizes="19x19">
+    <title>Black 938</title>
+    <!-- Bootstrap   -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- Mis Css  -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+
+
+
+
+    <!-- Tipografía de Google Fonts Prompt ital (200, 300, 400)   importado al css-->
+    
+    <!-- Meta Datos  -->
+    <meta name="" />
+    <meta name="" />
+</head>
+
+<body>
+
+ 
+    <div class="row">
+        <header>
+            <div class="col-8  col-xxl-8 ">
+                <small href="#" class="logo ">Black 938<small class="punto">.</small></small>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="col-4  col-xxl-4 text-end pt-3 pe-5">
+            
+                    <a id="login"  href="#" data-toggle="modal" onclick="ingresa()" data-target="#signinModal">Ingresar</a> 
+                    <a id="admin" class="pe-2" href="admin.html">Administrador</a> 
+                        
+                    <a id="salir" class="nav-link" onclick="cerrar()" style="display: none;"><i class="bi bi-person-fill">Salir</i></a>
+
+
+
+
+
+            
+                </div>
+        </header>
+    </div>
+    <section class="banner">
+        
+    </section>
+
+
+
+
+
+    <!-- contenido de la página -->
+  <div id="contenido">
+
+<div class="container">
+    <div class="col-8 col-lg-8 col-md-8  alert alert-secondary  ">
+
+        <div class="container-fluid">
+            <div class="form-group mb-0">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-auto mx-0 my-2"> 
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-solid fa-id-badge text-big"></i>
+                                    
+                                </span>
+                                                          
+                                    <input
+                                      name="rut"
+                                      id="inpuRut"
+                                      type="text"
+                                      class="form-control text-capitalize"
+                                      placeholder="Ingrese un RUT"
+                                      required oninput="checkRut(this)"
+                                      onkeypress="return isNumber(event)"
+                                      oninput="checkRut(this)"
+                                      required
+                                    />
+                               
+                            </div>
+                        </div>
+
+                        <div class="col-auto mx-0 my-2 " >
+                            <button
+                                id="buscatabla"
+                                type="button submit"
+                                class="btn btn-primary btn-"
+                                disable onclick="buscatabla()">
+                                    <i class="fas fa-check-circle"></i> Buscar
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="container-fluid">
+            <div class="form-group mb-0">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-auto mx-0 my-2"> 
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-solid fa-building-user"></i>
+                                    
+                                </span>
+
+                                <input name="nombre" id="inputnombre" type="text"  class=" form-control text-capitalize"    placeholder="Nombres"
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Nombres"
+                                    data-bs-content="Ingrese los 2 Nombres del Colaborador.!"
+                                    required/>
+
+                                    
+
+                                <input name="apellido" id="inputapellido" type="text" class="form-control text-capitalize "  placeholder=" Apellidos" 
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Apellidos"
+                                    data-bs-content="Ingrese los 2 Apellidos del Colaborador.!"
+                                    required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>                     
+
+        <div class="container-fluid">
+             <div class="form-group mb-0">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-auto mx-0 my-2"> 
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-solid fa-store text-big"></i>
+                                    
+                                </span>
+
+                                <input name="nombre" id="inputnombre" type="text"  class=" form-control text-capitalize"    placeholder="Cargo"
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Cargo"
+                                    data-bs-content="Ingrese los 2 Nombres del Colaborador.!"
+                                    required/>
+                            </div>
+                        </div>
+
+                        <div class="col-auto mx-0 my-2"> 
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-solid fa-building-user"></i>
+                                </span>
+
+                                <input name="nombre" id="inputnombre" type="text"  class=" form-control text-capitalize"    placeholder="Area"
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Area"
+                                    data-bs-content="Ingrese los 2 Nombres del Colaborador.!"
+                                    required/>
+                            </div>
+                        </div>
+
+                        <div class="col-auto mx-0 my-2"> 
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-solid fa-user-pilot">ss</i>
+                                </span>
+
+                                <select
+                                        name="centrocosto"
+                                        id="inputcentrocosto"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Departamento"
+                                        data-bs-trigger="hover"
+                                        data-bs-toggle="popover"
+                                        title="Centro de Costo"
+                                        data-bs-content="Seleccione el Centro de Costo Asignado al Colaborador!"
+                                        required
+                                      />
+                                        <option selected>  Seleccione Centro de Costo  </option>
+                                        <option>  Administración Gcia. Gral. Fantasilandia  </option>
+                                        <option>  Administración Oficina Corporativa  </option>
+                                        <option>  Air Race  </option>
+                                        <option>  Akademia  </option>
+                                        <option>  Ambulante Moby Dick </option>
+                                        <option>  Astro Line  </option>
+                                        <option>  Barco Pirata  </option>
+                                        <option>  Basketball  </option>
+                                        <option>  Black Hole  </option>
+                                        <option>  Bodega Fantasilandia  </option>
+                                        <option>  Botes Chocadores  </option>
+                                        <option>  Buses </option>
+                                        <option>  Carpa Eventos </option>
+                                        <option>  Carrusel Caballos </option>
+                                        <option>  Casino del Personal </option>
+                                        <option>  Compras Fantasilandia </option>
+                                        <option>  Contratista </option>
+                                        <option>  Control de Gestión  </option>
+                                        <option>  Crazy Dance </option>
+                                        <option>  Derby </option>
+                                        <option>  Down the Clown </option>
+                                        <option>  Eventos y Shows </option>
+                                        <option>  Evolution </option>
+                                        <option>  Fantasy Store </option>
+                                        <option>  Football Striker  </option>
+                                        <option>  Gcia. RR.HH.  </option>
+                                        <option>  Gerencia Comercial  </option>
+                                        <option>  Gerencia de Proyectos Parque </option>
+                                        <option>  Heladería Savory  </option>
+                                        <option>  Johnny Rockets  </option>
+                                        <option>  Johnny Rockets Norte </option>
+                                        <option>  Kiosko Reloj  </option>
+                                        <option>  Mantenimiento </option>
+                                        <option>  Marketing y Preventa  </option>
+                                        <option>  Mega Disko  </option>
+                                        <option>  Mini Bongo  </option>
+                                        <option>  Moby Dick </option>
+                                        <option>  Montaña Rusa Suspender / Raptor </option>
+                                        <option>  Obras Civiles </option>
+                                        <option>  Pesca Milagrosa </option>
+                                        <option>  Pirámide / Monga  </option>
+                                        <option>  Prevención de Riesgos </option>
+                                        <option>  Pushing Ball  </option>
+                                        <option>  Rapid River </option>
+                                        <option>  Restaurant Arbolito </option>
+                                        <option>  Restaurant Palacio de Cristal </option>
+                                        <option>  Restaurantoon </option>
+                                        <option>  Revenge / Twist & Splash  </option>
+                                        <option>  RR HH Parque  </option>
+                                        <option>  Rueda de la Fortuna </option>
+                                        <option>  Samba Balloon </option>
+                                        <option>  Seguridad Portería  </option>
+                                        <option>  Servicio Cliente  </option>
+                                        <option>  Servicios Generales </option>
+                                        <option>  Striker </option>
+                                        <option>  Subgerencia Operaciones </option>
+                                        <option>  Tagadá  </option>
+                                        <option>  Tesorería - Gcia. Adm. y Finanzas </option>
+                                        <option>  Tesorería Fantasilandia </option>
+                                        <option>  TI Fantasilandia  </option>
+                                        <option>  Top Spin  </option>
+                                        <option>  Tren Minero </option>
+                                        <option>  Tsunami </option>
+                                        <option>  Uniformes </option>
+                                        <option>  Venta Interna Alimentos & Bebidas </option>
+                                        <option>  Vigilancia  </option>
+                                        <option>  Volare  </option>
+                                        <option>  Wild Mouse  </option>
+                                        
+                                      </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="container-fluid">
+             <div class="form-group mb-0">
+                <div class="container-fluid">
+                    <div class="row">
+
+
+        
+                        
+                            <div class="input-group input-group-alternative">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-solid fa-file-lines"></i>
+                                </span>
+                                  
+                                <input name="observaciones" id="inputnombre" type="text"  class=" form-control text-capitalize"    placeholder="Observaciones"
+                                    data-bs-trigger="hover"
+                                    data-bs-toggle="popover"
+                                    title="Observaciones"
+                                    data-bs-content="Ingrese Observaciones.!"
+                                    required/>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+  <!-- contenido de la página -->
+
+
+
+
+
+    <section class="banner2">
+    </section>
+    <section>
+        <footer>
+            <div class="container text-center card-footer text-muted">
+                <div class="row">
+                    <div class="col col-12 fw-bold">
+                        <span class="fs-4">BLACK 938.</span>
+                    </div>
+                    <div class="col col-12">
+                        <span class="fs-6">
+                            © 2020-2021 Santiago, Chile Ð€IMØ§¯®Ã§Iv Todos los derechos reservados.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+
+
+
+    
+
+
+
+
+    <!-- Modal para mensajeria --> 
+    <div class="modal fade  " tabindex="-1" id="modalmensajes" aria-labelledby="modalmensajes" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modalcontenido">
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<!-- Firebase  -->
+    
+   <!-- SDK FIREBASE -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+  <!-- Don't change the format for any other products. -->
+  <!-- etc. -->
+
+
+<!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  
+
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+           apiKey: "AIzaSyDEXV4uu0VGnIWNcpr3xCRAYq1u3wxiyBI",
+        authDomain: "black-938.firebaseapp.com",
+        projectId: "black-938",
+        storageBucket: "black-938.appspot.com",
+        messagingSenderId: "493225174118",
+        appId: "1:493225174118:web:72aa09b310b7f57297f9a7",
+        measurementId: "G-CW21DRFX5J" 
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const fs = firebase.firestore();
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+   
+   
+    <!-- Repositorio de Iconos  -->
+    <script src="https://kit.fontawesome.com/4a4c7845d8.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

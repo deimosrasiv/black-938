@@ -30,7 +30,8 @@
 </head>
 
 <body>
-
+    
+   
  
     <div class="row">
         <header>
@@ -47,7 +48,7 @@
                         
                     <a id="salir" class="nav-link" onclick="cerrar()" style="display: none;"><i class="bi bi-person-fill">Salir</i></a>
 
-
+                    <a id="emailusuario" class="nav-link" ></a>
 
 
 
@@ -56,6 +57,7 @@
         </header>
     </div>
     <section class="banner">
+        
     </section>
 
 
@@ -91,8 +93,7 @@
         </footer>
     </section>
 
-
-
+    
 
     
 
@@ -137,22 +138,6 @@
   
 
 
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-           apiKey: "AIzaSyDEXV4uu0VGnIWNcpr3xCRAYq1u3wxiyBI",
-        authDomain: "black-938.firebaseapp.com",
-        projectId: "black-938",
-        storageBucket: "black-938.appspot.com",
-        messagingSenderId: "493225174118",
-        appId: "1:493225174118:web:72aa09b310b7f57297f9a7",
-        measurementId: "G-CW21DRFX5J" 
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const fs = firebase.firestore();
-      </script>
 
 
 
@@ -161,10 +146,12 @@
 
 
 
+        <!-- SCRIPT VALIDADOR -->
+    <script type="text/javascript" src="assets/js/rut.js" ></script>
 
-
-
-
+     <!-- SCRIPT CONECCION FIREBASE -->
+    <script type="text/javascript" src="assets/js/main.js" ></script>
+    
     <script type="text/javascript" src="assets/js/app.js" ></script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

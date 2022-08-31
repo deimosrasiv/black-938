@@ -14,9 +14,16 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+
+    
+    <link rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
@@ -30,6 +37,7 @@
 </head>
 
 <body>
+
 
  
     <div class="row">
@@ -47,7 +55,7 @@
                         
                     <a id="salir" class="nav-link" onclick="cerrar()" style="display: none;"><i class="bi bi-person-fill">Salir</i></a>
 
-                    <div id="emailusuario" style="color: white;"></div>
+                    <a id="emailusuario" class="nav-link" ></a>
 
 
 
@@ -58,8 +66,8 @@
     <section class="banner">
     </section>
 
-
-
+   
+    
 
 
     <!-- contenido de la página -->
@@ -69,7 +77,7 @@
   </div>
   <!-- contenido de la página -->
 
-
+  
 
 
 
@@ -113,6 +121,8 @@
 
 
 
+
+
 <!-- Firebase  -->
     
    <!-- SDK FIREBASE -->
@@ -138,22 +148,7 @@
   
 
 
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-           apiKey: "AIzaSyDEXV4uu0VGnIWNcpr3xCRAYq1u3wxiyBI",
-        authDomain: "black-938.firebaseapp.com",
-        projectId: "black-938",
-        storageBucket: "black-938.appspot.com",
-        messagingSenderId: "493225174118",
-        appId: "1:493225174118:web:72aa09b310b7f57297f9a7",
-        measurementId: "G-CW21DRFX5J" 
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const fs = firebase.firestore();
-      </script>
+    
 
 
 
@@ -162,9 +157,10 @@
 
 
 
+   <!-- SCRIPT VALIDADOR -->
+   <script type="text/javascript" src="assets/js/rut.js" ></script>
 
-
-
+    <script type="text/javascript" src="assets/js/main.js" ></script>
 
     <script type="text/javascript" src="assets/js/appauth.js" ></script>
     
