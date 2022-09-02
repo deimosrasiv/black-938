@@ -170,3 +170,123 @@
 <option> Solo se presenta a inducción y no a trabajar </option>
 <option> Vencimiento </option>
 
+
+
+
+
+<option>	Abogado	</option>
+<option>	Actor y Asistente Show	</option>
+<option>	Administrativo	</option>
+<option>	Administrativo de Compras	</option>
+<option>	Analista Contable	</option>
+<option>	Analista de Procesos	</option>
+<option>	Analista de Reclutamiento y Selección	</option>
+<option>	Analista de Remuneraciones	</option>
+<option>	Analista Seleccion y Capacitacion	</option>
+<option>	Analista Software	</option>
+<option>	Anfitrion Act. Artisticas	</option>
+<option>	Anfitrion de Parque	</option>
+<option>	Aseador	</option>
+<option>	Asesor Senior Mantención	</option>
+<option>	Asistente Bodega	</option>
+<option>	Asistente Central Telefonica	</option>
+<option>	Asistente Comercial	</option>
+<option>	Asistente Contable	</option>
+<option>	Asistente de Alimentos y Bebidas	</option>
+<option>	Asistente de Compras	</option>
+<option>	Asistente de Eventos	</option>
+<option>	Asistente de Logística	</option>
+<option>	Asistente de Obras Civiles Montaje	</option>
+<option>	Asistente de Personas	</option>
+<option>	Asistente de Remuneraciones	</option>
+<option>	Asistente Grandes Cuentas	</option>
+<option>	Asistente Informatica	</option>
+<option>	Asistente MK Digital	</option>
+<option>	Asistente Operador Mantenedor	</option>
+<option>	Asistente Parque	</option>
+<option>	Asistente Servicio Cliente	</option>
+<option>	Auditor Interno	</option>
+<option>	Auxiliar de Casino	</option>
+<option>	Ayudante Contable	</option>
+<option>	Ayudante de Cocina	</option>
+<option>	Ayudante de Recursos Humanos	</option>
+<option>	Ayudante Tesoreria	</option>
+<option>	Brigadista	</option>
+<option>	Cajero	</option>
+<option>	Carpintero Mantencion	</option>
+<option>	Chofer	</option>
+<option>	Consultor Externo BI	</option>
+<option>	Contador	</option>
+<option>	Coordinador Emergencias	</option>
+<option>	Director de Arte	</option>
+<option>	Diseñador Grafico	</option>
+<option>	Electrico	</option>
+<option>	Electronico	</option>
+<option>	Encargado Adm. de Personas y Remuneraciones	</option>
+<option>	Encargado de Bodega	</option>
+<option>	Encargado de Capacitacion	</option>
+<option>	Encargado de Obras Civiles	</option>
+<option>	Encargado de Remuneraciones	</option>
+<option>	Encargado de Seleccion	</option>
+<option>	Encargado Modulo Alimentacion	</option>
+<option>	Experto en Prevención de Riesgos	</option>
+<option>	Guardia de Seguridad	</option>
+<option>	Housekeeper	</option>
+<option>	Housekeeper y Cocinera	</option>
+<option>	Ingeniero Control de Gestion	</option>
+<option>	Ingeniero en Alimentos	</option>
+<option>	Ingeniero Infraestructura TI	</option>
+<option>	Jardinero	</option>
+<option>	Jefe Administración de Personas	</option>
+<option>	Jefe de Informatica	</option>
+<option>	Jefe de Local	</option>
+<option>	Jefe de Remuneraciones	</option>
+<option>	Jefe de Souvenir	</option>
+<option>	Jefe Seguridad	</option>
+<option>	Jefe Servicio Cliente	</option>
+<option>	Jefe Técnico	</option>
+<option>	Junior	</option>
+<option>	Key User	</option>
+<option>	Maestro de Cocina	</option>
+<option>	Mantenedor Equipos A&B	</option>
+<option>	Mantenedor Piscinas	</option>
+<option>	Mecanico	</option>
+<option>	Moldeador Fibra de Vidrio	</option>
+<option>	Operador Alimentacion Senior	</option>
+<option>	Operador Ayudante	</option>
+<option>	Operador Castillo Encantado	</option>
+<option>	Operador de Bodega	</option>
+<option>	Operador Mantenedor	</option>
+<option>	Operador Maquillador	</option>
+<option>	Operador Parque Entretencion	</option>
+<option>	Operador Parque y Bodega	</option>
+<option>	Planificador	</option>
+<option>	Produccion de Eventos	</option>
+<option>	Produccion Escenografica	</option>
+<option>	Programador Analista	</option>
+<option>	Recepcionista	</option>
+<option>	Secretaria	</option>
+<option>	Secretaria Gerencia General	</option>
+<option>	Secretaria Presidencia	</option>
+<option>	Soldador	</option>
+<option>	Sub Administrador	</option>
+<option>	Sub Encargado Modulo Venta	</option>
+<option>	Sub Encargado Servicio al Cliente	</option>
+<option>	Subjefe de Local	</option>
+<option>	Subjefe de Seguridad	</option>
+<option>	Supervisor Control de Procesos y Protocolos	</option>
+<option>	Supervisor de Alimentos y Bebidas	</option>
+<option>	Supervisor de Aseo	</option>
+<option>	Supervisor de Bodega	</option>
+<option>	Supervisor de Compras	</option>
+<option>	Supervisor de Mantencion	</option>
+<option>	Supervisor de Operaciones	</option>
+<option>	Supervisor de Seguridad	</option>
+<option>	Supervisor Zona Seguridad	</option>
+<option>	Técnico Eléctrico Medio Mantención	</option>
+<option>	Técnico Eléctrico Senior Mantención	</option>
+<option>	Técnico Mecánico Medio Mantención	</option>
+<option>	Técnico Mecánico Senior Mantención	</option>
+<option>	Traductor y Protocolo	</option>
+
+

@@ -181,15 +181,15 @@ function observador() {
                                             <div class="col-12  alert alert-secondary">
                                                 <nav>
                                                     <div class="nav nav-tabs pb-4" id="nav-tab" role="tablist">
-                                                        <button class="nav-link active" id="nav-ingresos-tab" data-bs-toggle="tab" data-bs-target="#nav-ingresos" type="button" role="tab" aria-controls="nav-ingresos" aria-selected="true">Crea User/Admin</button>
-                                                        <button class="nav-link" id="nav-d-tab" data-bs-toggle="tab" data-bs-target="#nav-admin" type="button" role="tab" aria-controls="nav-admin" aria-selected="false">Ingresos</button>
+                                                        <button class="nav-link" id="nav-ingresos-tab" data-bs-toggle="tab" data-bs-target="#nav-ingresos" type="button" role="tab" aria-controls="nav-ingresos" aria-selected="false">Crea User/Admin</button>
+                                                        <button class="nav-link active " id="nav-d-tab" data-bs-toggle="tab" data-bs-target="#nav-admin" type="button" role="tab" aria-controls="nav-admin" aria-selected="true">Ingresos</button>
                                                     </div>
                                                 </nav>
 
                                                     <div class="tab-content" id="nav-tabContent">
 
                                                             <!-- ****** Formulario de creacion de usuarios y administradores **** -->
-                                                        <div class="tab-pane fade show active" id="nav-ingresos" role="tabpanel" aria-labelledby="nav-ingresos-tab">
+                                                        <div class="tab-pane fade " id="nav-ingresos" role="tabpanel" aria-labelledby="nav-ingresos-tab">
                                                             <form>
                                                                 <div class="mb-3">
                                                                     <label for="exampleFormControlInput1" class="form-label">Correo</label>
@@ -238,7 +238,7 @@ function observador() {
                                                         </div>
 
                                                             <!-- ****** Formulario de ingresos de usuarios a Black-938 **** -->
-                                                        <div class="tab-pane fade" id="nav-admin" role="tabpanel" aria-labelledby="nav-admin-tab">
+                                                        <div class="tab-pane fade show active" id="nav-admin" role="tabpanel" aria-labelledby="nav-admin-tab">
                                                             
                                                                     <div class="container">
                                                                         <div class="col-12 col-md-12 col-lg-12 col xl-6 xxl-6  alert alert-secondary  ">
@@ -769,29 +769,28 @@ function countChars(obj) {
 
 
 
-
 function nombre() {
-  document.getElementById("nombre").style.display = "inline";
+    document.getElementById("nombre").style.display = "inline";
 }
 
 function sinnombre() {
-  document.getElementById("nombre").style.display = "none";
+    document.getElementById("nombre").style.display = "none";
 }
 
 function cerrar() {
-  firebase
-    .auth()
-    .signOut()
-    .then(function () {
-      console.log("Saliendo. . .");
-      document.getElementById("login").style = "display: online";
-      document.getElementById("salir").style = "display: none";
-      document.getElementById("admin").style = "display: online";
-      location.reload();
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    firebase
+        .auth()
+        .signOut()
+        .then(function() {
+            console.log("Saliendo. . .");
+            document.getElementById("login").style = "display: online";
+            document.getElementById("salir").style = "display: none";
+            document.getElementById("admin").style = "display: online";
+            location.reload();
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
 }
 
 
@@ -800,98 +799,123 @@ function cerrar() {
 
 
 
+function guardadatos() {
+    var rutbuscar = document.getElementById("rut").value;
+    db.collection("blacklist").where("rut", "==", rutbuscar)
+        .get()
+        .then(function(querySnapshot) {
 
-
-
-
-
-
-function guardadatos(){
-    console.log("estamos guardando datos" );
-
-                
-document.getElementById("inputresponzable").value = document.getElementById("emailusuario").innerHTML;
-
-
-
-var rut = document.getElementById("rut").value;
-var nombres = document.getElementById("inputnombres").value;
-var apellidos = document.getElementById("inputapellidos").value;
-var fecha = document.getElementById("inputfecha").value;
-var cargo = document.getElementById("inputcargo").value;
-var centrocosto = document.getElementById("inputcentrocosto").value;
-var causa = document.getElementById("inputcausa").value;
-var responzable = document.getElementById("inputresponzable").value;
-var observacion = document.getElementById("inputobser").value;
-
-
-if (rut == ""){
-    alert("Debe ingresar un rut Válido");
-    document.getElementById("rut").focus();
-} else if (nombres == ""){
-    alert("Debe ingresar Nombres y Apellidos");
-    document.getElementById("inputnombres").focus();
-
-} else if (apellidos == ""){
-    alert("Debe ingresar Nombres y Apellidos");
-    document.getElementById("inputapellidos").focus();
-
-} else if (fecha == ""){
-    alert("Debe ingresar fechas del ingreso");
-    document.getElementById("inputfecha").focus();
-
-} else if (cargo == ""){
-    alert("Debe ingresar el cargo del Colaborador");
-    document.getElementById("inputcargo").focus();
-
-} else if (centrocosto == ""){
-    alert("Debe ingresar el Centro Cosoto, donde se desempeño el colaborador");
-    document.getElementById("inputcentrocosto").focus();
-
-} else if (causa == ""){
-    alert("Debe ingresar la Causa que proboco el ingreso del colaborador a Black-938.");
-    document.getElementById("inputcausa").focus();
-
-} else if (observacion == ""){
-    alert("Ingresar detalles de la Causa que proboco el ingreso del colaborador a Black-938.");
-    document.getElementById("inputobser").focus();
-
-} else {
-
-    console.log(fecha);
-    console.log(cargo);
-    console.log(centrocosto);
-    console.log(causa);
-
-     db.collection("blacklist").add({
-        rut: rut,
-        nombres: nombres,
-        apellidos: apellidos,
-        fecha: fecha,
-        cargo: cargo,
-        centrocosto: centrocosto,
-        causa: causa,
-        responzable: responzable,
-        observaciones: observacion
-        
-
-        })
-        .then(function(docRef) {
-            //console.log("acabamos de ingresar los datos")
-            //grupo_telegram.close()
-            // mostramos mensage que se cargo los datos con exito 
-            //console.log("mostraremos mensage");
-        //mostrarToast()
-        //limpiarpagina();
-        //setTimeout(function(){location.reload();},5000);
-            
+            if (querySnapshot.empty) {
+                //console.log("Este usuario no tiene registros");
+                guardadatos2();
+            } else {
+                //guardadatos2();
+                console.log("Este Usuario ya se encuentra registrado");
+            }
         })
         .catch(function(error) {
-        console.error("Error adding document: ", error);
+        console.log("Error getting documents: ", error);
+
         });
-
-
 }
+
+
+
+
+
+function guardadatos2() {
+    console.log("estamos guardando datos");
+
+    document.getElementById("inputresponzable").value = document.getElementById("emailusuario").innerHTML;
+
+    var rut = document.getElementById("rut").value;
+    var nombres = document.getElementById("inputnombres").value;
+    var apellidos = document.getElementById("inputapellidos").value;
+    var fecha = document.getElementById("inputfecha").value;
+    var cargo = document.getElementById("inputcargo").value;
+    var centrocosto = document.getElementById("inputcentrocosto").value;
+    var causa = document.getElementById("inputcausa").value;
+    var responzable = document.getElementById("inputresponzable").value;
+    var observacion = document.getElementById("inputobser").value;
+
+
+    if (rut == "") {
+        alert("Debe ingresar un rut Válido");
+        document.getElementById("rut").focus();
+    } else if (nombres == "") {
+        alert("Debe ingresar Nombres y Apellidos");
+        document.getElementById("inputnombres").focus();
+
+    } else if (apellidos == "") {
+        alert("Debe ingresar Nombres y Apellidos");
+        document.getElementById("inputapellidos").focus();
+
+    } else if (fecha == "") {
+        alert("Debe ingresar fechas del ingreso");
+        document.getElementById("inputfecha").focus();
+
+    } else if (cargo == "") {
+        alert("Debe ingresar el cargo del Colaborador");
+        document.getElementById("inputcargo").focus();
+
+    } else if (centrocosto == "") {
+        alert("Debe ingresar el Centro Cosoto, donde se desempeño el colaborador");
+        document.getElementById("inputcentrocosto").focus();
+
+    } else if (causa == "") {
+        alert("Debe ingresar la Causa que proboco el ingreso del colaborador a Black-938.");
+        document.getElementById("inputcausa").focus();
+
+    } else if (observacion == "") {
+        alert("Ingresar detalles de la Causa que proboco el ingreso del colaborador a Black-938.");
+        document.getElementById("inputobser").focus();
+
+    } else {
+
+        console.log(fecha);
+        console.log(cargo);
+        console.log(centrocosto);
+        console.log(causa);
+
+        db.collection("blacklist").add({
+                rut: rut,
+                nombres: nombres,
+                apellidos: apellidos,
+                fecha: fecha,
+                cargo: cargo,
+                centrocosto: centrocosto,
+                causa: causa,
+                responzable: responzable,
+                observaciones: observacion
+
+
+            })
+            .then(function(docRef) {
+                //console.log("acabamos de ingresar los datos")
+                //grupo_telegram.close()
+                // mostramos mensage que se cargo los datos con exito 
+                //console.log("mostraremos mensage");
+                //mostrarToast()
+                //limpiarpagina();
+                //setTimeout(function(){location.reload();},5000);
+
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
+
+
+
+        document.getElementById("rut").value = "";
+        document.getElementById("inputnombres").value = "";
+        document.getElementById("inputapellidos").value = "";
+        document.getElementById("inputfecha").value = "";
+        document.getElementById("inputcargo").value = "Seleccione el Cargo del Colaborador";
+        document.getElementById("inputcentrocosto").value = "Seleccione Centro de Costo";
+        document.getElementById("inputcausa").value = "Seleccione Causa";
+        document.getElementById("inputresponzable").value = "";
+        document.getElementById("inputobser").value = "";
+    }
 
 
 

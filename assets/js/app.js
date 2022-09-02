@@ -315,7 +315,9 @@ function observador() {
     document.getElementById("admin").style = "display: none";
       
     contenido.innerHTML=`
-
+    <div class="container text-center">
+        <h2>Formulario de sonsulta</h2>
+    </div>
     <div class="container">
     <div class="col-12 col-md-12 col-lg-12 col xl-6 xxl-6  alert alert-secondary  ">
 
@@ -324,29 +326,32 @@ function observador() {
                 <div class="container-fluid">
                     <div class="row">
 
-                        <div class="col-12 col-xl-6 col-lg-6 col-md-6 ">
+                        <div class="col-12  ">
                             <div class="input-group input-group-alternative">
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="fas fa-solid fa-id-badge text-big"></i>
                                 </span>
-                        
-                                <form name="miFormulario">
-                                    <input
-                                    name="rut"
-                                    id="rut"
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Ingrese un RUT"
-                                    required oninput="checkRut(this)"
-                                    onkeypress="return isNumber(event)"
-                                    required ="checkRut(this)"
-                                    maxlength="12"
-                                    required
-                                    />
-                                </form>
-                                <i id="vbok" class="fa-solid fa-check fa-2x px-3" style="color:green; display:none"></i>
-                                <i id="vbnook" class="fa-solid fa-xmark fa-2x px-3 " style="color:red; display:none" ></i>
-                            </div>
+                                <div class="form-group w-50">
+                            
+                                    <form name="miFormulario">
+                                        <input
+                                        name="rut"
+                                        id="rut"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Ingrese un RUT"
+                                        required oninput="checkRut(this)"
+                                        onkeypress="return isNumber(event)"
+                                        required ="checkRut(this)"
+                                        maxlength="12"
+                                        required
+                                        
+                                        />
+                                    </form>
+                                </div>
+                                    <i id="vbok" class="fa-solid fa-check fa-2x px-3" style="color:green; display:none"></i>
+                                    <i id="vbnook" class="fa-solid fa-xmark fa-2x px-3 " style="color:red; display:none" ></i>
+                                
 
                             <div class="col-12  text-left">
                                 <p class="py-2"style="font-size: 10px;" id="mensaje">
@@ -365,7 +370,7 @@ function observador() {
                             </div>
                         </div>
 
-                        <div class="col-12 col-xl-4 col-lg-6 col-md-6  my-3 px-auto" style="display:none">
+                        <div class="col-12 col-xl-6 col-lg-6 col-md-6  my-3 px-auto" style="display:none">
                             <div id="alerta" class="alert alert-info   fade show text-center" role="alert">
                                 <strong>
                                     Atención!
@@ -663,53 +668,52 @@ function sinnombre() {
 
 
 function buscatabla() {
-var rutbuscar = document.getElementById("rut").value;
+    var rutbuscar = document.getElementById("rut").value;
     console.log(rutbuscar);
     document.getElementById("inputnombres").value = "";
     document.getElementById("inputapellidos").value = "";
-    document.getElementById("inputcargo").value = ""; 
-    document.getElementById("inputcentrocosto").value = ""; 
+    document.getElementById("inputcargo").value = "";
+    document.getElementById("inputcentrocosto").value = "";
     document.getElementById("inputresponzable").value = "";
-    document.getElementById("inputcausa").value = ""; 
-    document.getElementById("inputobser").value = ""; 
+    document.getElementById("inputcausa").value = "";
+    document.getElementById("inputobser").value = "";
 
 
-    db.collection("blacklist").where("rut", "==", rutbuscar).onSnapshot((querySnapshot) => {
+    db.collection("blacklist").where("rut", "==", rutbuscar)
+        .get()
+        .then(function(querySnapshot) {
 
-            querySnapshot.forEach((doc) => {
+            if (querySnapshot.empty) {
+
+                alert("Este usuario no tiene registros");
+                console.log("Este usuario no tiene registros");
                
-                if(doc.id!= ""){
-                document.getElementById("inputnombres").value=doc.data().nombres;
-                document.getElementById("inputapellidos").value=doc.data().apellidos;
-                document.getElementById("inputcargo").value=doc.data().cargo;
-                document.getElementById("inputcentrocosto").value=doc.data().centrocosto;
-                document.getElementById("inputresponzable").value=doc.data().registra;
-                document.getElementById("inputcausa").value=doc.data().causa;
+            } else {
+                //guardadatos2();
+                console.log("Este Usuario ya se encuentra registrado");
+                document.getElementById("inputnombres").value = doc.data().nombres;
+                document.getElementById("inputapellidos").value = doc.data().apellidos;
+                document.getElementById("inputcargo").value = doc.data().cargo;
+                document.getElementById("inputcentrocosto").value = doc.data().centrocosto;
+                document.getElementById("inputresponzable").value = doc.data().registra;
+                document.getElementById("inputcausa").value = doc.data().causa;
                 document.getElementById("inputobser").value = doc.data().observaciones;
                 document.getElementById("inputresponzable").value = doc.data().responzable;
-                    var fecha = doc.data().fecha;
-                    var nueva = fecha.split(" ")[0];
-                    var format = nueva.split("-");
-                    var ultima = format[2] + '-' + format[1] + '-' + format[0]
-                    
-                    
-                    document.getElementById("inputfecha").value = ultima;
-                
+                var fecha = doc.data().fecha;
+                var nueva = fecha.split(" ")[0];
+                var format = nueva.split("-");
+                var ultima = format[2] + '-' + format[1] + '-' + format[0]
+
+
+                document.getElementById("inputfecha").value = ultima;
+
                 console.log(doc.data().fecha);
-                    console.log(doc.id);
-                    console.log(doc.data().nombres);
-                    console.log(doc.data().apellidos);
-                    console.log(doc.data().responzable);
-                    console.log(doc.data().fecha);
+                console.log(doc.id);
+                console.log(doc.data().nombres);
+                console.log(doc.data().apellidos);
+                console.log(doc.data().responzable);
+                console.log(doc.data().fecha);
 
-                } else {
-                    console.log("no hay datos para mostrar");
-
-                }
-
-                
-            })
+            }
         })
-    
 }
-
