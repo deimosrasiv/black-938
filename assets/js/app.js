@@ -322,7 +322,8 @@ function observador() {
     <div class="col-12 col-md-12 col-lg-12 col xl-6 xxl-6  alert alert-secondary  ">
 
         <div class="container-fluid">
-            <div class="form-group mb-0">
+            <div class="container-fluid">
+                <div class="form-group mb-0">
                 <div class="container-fluid">
                     <div class="row">
 
@@ -383,6 +384,7 @@ function observador() {
                             </div> 
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

@@ -562,6 +562,7 @@ function observador() {
                                                                                                 <option>  Moby Dick </option>
                                                                                                 <option>  Montaña Rusa Suspender / Raptor </option>
                                                                                                 <option>  Obras Civiles </option>
+                                                                                                <option>  Operaciones </option>
                                                                                                 <option>  Pesca Milagrosa </option>
                                                                                                 <option>  Pirámide / Monga  </option>
                                                                                                 <option>  Prevención de Riesgos </option>
@@ -636,6 +637,7 @@ function observador() {
                                                                                                 <option> Incumplimiento Grave De Las Obligaciones Que Impone El Contrato </option>
                                                                                                 <option> Ingreso de drogas </option>
                                                                                                 <option> Mal desempeño durante funciones </option>
+                                                                                                <option> Necesidad de la Empresa </option>
                                                                                                 <option> No cumple requisitos del cargo </option>
                                                                                                 <option> Solo se presenta a inducción y no a trabajar </option>
                                                                                                 <option> Vencimiento </option>>
@@ -810,6 +812,7 @@ function guardadatos() {
                 guardadatos2();
             } else {
                 //guardadatos2();
+                alert("Este Usuario ya se encuentra registrado");
                 console.log("Este Usuario ya se encuentra registrado");
             }
         })
