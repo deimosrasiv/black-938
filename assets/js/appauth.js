@@ -160,7 +160,7 @@ function observador() {
       console.log("existe usuario activo");
 
       if (user.emailVerified) {
-        //console.log("Verificado: "+user.emailVerified);
+        console.log("Verificado: "+user.emailVerified);
         //console.log(user.email);
       }
       db.collection("admin")
@@ -657,16 +657,16 @@ function observador() {
                                                                                                     <span class="input-group-text" id="basic-addon1">
                                                                                                         <i class="fa-solid fa-person-military-pointing"></i>
                                                                                                     </span>
-                                                                                                    <input name="responzable" id="inputresponzable" type="text"  class=" form-control"    placeholder="Responzable"
+                                                                                                    <input name="responsable" id="inputresponzable" type="text"  class=" form-control"    placeholder="Responsable"
                                                                                                         data-bs-trigger="hover"
                                                                                                         data-bs-toggle="popover"
-                                                                                                        title="Respozable"
+                                                                                                        title="Resposable"
                                                                                                         required
                                                                                                         disabled
                                                                                                     />
                                                                                                 </div>
                                                                                                     <p class="px-4" style="font-size: 10px;">
-                                                                                                        Responzable.
+                                                                                                        Responsable.
                                                                                                     </p>
                                                                                             </div>
 
@@ -737,13 +737,8 @@ function observador() {
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6 col-md-6 ">
-                    <h1 >Solicite su Acceso</h1>
-                    <small>Balck 938. LisLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</small>
+                    <h1 >Módulo de Administración</h1>
+                    <small>Balck 938. Plataforma para consultar el estado, del colaborador, entregando información clara y detalla a la hora de tomar una decisión. Black 938. te entregara la información en cualquier parte donde este, con solo tener acceso a internet y las credenciales necesarias para el ingreso.</small>
                     <img class="img-fluid" id="ejecutiva" src="assets/img/biometric.jpg ">
                 </div>
 

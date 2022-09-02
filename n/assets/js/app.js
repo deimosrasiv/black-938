@@ -316,7 +316,7 @@ function observador() {
       
     contenido.innerHTML=`
     <div class="container text-center">
-        <h2>Formulario de sonsulta</h2>
+        <h2>Formulario de Consulta</h2>
     </div>
     <div class="container">
     <div class="col-12 col-md-12 col-lg-12 col xl-6 xxl-6  alert alert-secondary  ">

@@ -637,6 +637,7 @@ function observador() {
                                                                                                 <option> Incumplimiento Grave De Las Obligaciones Que Impone El Contrato </option>
                                                                                                 <option> Ingreso de drogas </option>
                                                                                                 <option> Mal desempeño durante funciones </option>
+                                                                                                <option> Necesidad de la Empresa </option>
                                                                                                 <option> No cumple requisitos del cargo </option>
                                                                                                 <option> Solo se presenta a inducción y no a trabajar </option>
                                                                                                 <option> Vencimiento </option>>

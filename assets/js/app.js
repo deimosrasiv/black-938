@@ -243,20 +243,29 @@ function observador() {
             document.getElementById("emailusuario").innerHTML = user.email;
             console.log("existe usuario activo");
             //apareceUser(user);
-            //console.log(user);
+            console.log(user.emailVerified);
 
-            if (user.emailVerified == null) {
+            if (user.emailVerified == false) {
+
+                console.log("no verificado");
+                
                 contenido.innerHTML = `
                     <div class="container">
                         <h1 id="titulo_usuario" class="text-center"></h1>
                     </div>
                 `;
-
+                cerrar();
+                alert("Este correo no se encuentra verificado.");
                 document.getElementById("titulo_usuario").innerHTML =
                     "no estas verificado.";
-            }
+            } else {
+
+            
+            console.log("verificado");
             console.log(user.email);
-            apareceuser();
+                apareceuser();
+
+            }
         }
     });
 
@@ -316,7 +325,7 @@ function observador() {
       
     contenido.innerHTML=`
     <div class="container text-center">
-        <h2>Formulario de sonsulta</h2>
+        <h2>Formulario de Consulta</h2>
     </div>
     <div class="container">
     <div class="col-12 col-md-12 col-lg-12 col xl-6 xxl-6  alert alert-secondary  ">
@@ -525,7 +534,7 @@ function observador() {
                                 <i class="fa-solid fa-person-military-pointing"></i>
                                 </span>
 
-                                <input name="responzable" id="inputresponzable" type="text"  class=" form-control"    placeholder="Responzable"
+                                <input name="responsable" id="inputresponzable" type="text"  class=" form-control"    placeholder="Responsable"
                                     data-bs-trigger="hover"
                                     data-bs-toggle="popover"
                                     title="Respozable"
@@ -533,7 +542,7 @@ function observador() {
                                     disabled/>
                             </div>
                             <p class="px-4" style="font-size: 10px;">
-                                Responzable.
+                                Responsable.
                             </p>
                         </div>
                     </div>
@@ -593,12 +602,7 @@ function apareceadmin(user) {
             <div class="row">
                 <div class="col-12 col-lg-6 col-md-6 ">
                     <h1 >Envío de Correos</h1>
-                    <small>Balck 938. LisLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</small>
+                    <small>nngnhg.</small>
                     <img class="img-fluid" id="ejecutiva" src="assets/img/biometric.jpg ">
                 </div>
 
