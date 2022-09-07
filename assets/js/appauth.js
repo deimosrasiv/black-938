@@ -160,7 +160,7 @@ function observador() {
       console.log("existe usuario activo");
 
       if (user.emailVerified) {
-        console.log("Verificado: "+user.emailVerified);
+        //console.log("Verificado: "+user.emailVerified);
         //console.log(user.email);
       }
       db.collection("admin")
@@ -666,7 +666,7 @@ function observador() {
                                                                                                     />
                                                                                                 </div>
                                                                                                     <p class="px-4" style="font-size: 10px;">
-                                                                                                        Responsable.
+                                                                                                        Responable.
                                                                                                     </p>
                                                                                             </div>
 

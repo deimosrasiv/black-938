@@ -243,20 +243,29 @@ function observador() {
             document.getElementById("emailusuario").innerHTML = user.email;
             console.log("existe usuario activo");
             //apareceUser(user);
-            //console.log(user);
+            console.log(user.emailVerified);
 
-            if (user.emailVerified == null) {
+            if (user.emailVerified == false) {
+
+                console.log("no verificado");
+                
                 contenido.innerHTML = `
                     <div class="container">
                         <h1 id="titulo_usuario" class="text-center"></h1>
                     </div>
                 `;
-
+                cerrar();
+                alert("Este correo no se encuentra verificado.");
                 document.getElementById("titulo_usuario").innerHTML =
                     "no estas verificado.";
-            }
+            } else {
+
+            
+            console.log("verificado");
             console.log(user.email);
-            apareceuser();
+                apareceuser();
+
+            }
         }
     });
 
@@ -525,7 +534,7 @@ function observador() {
                                 <i class="fa-solid fa-person-military-pointing"></i>
                                 </span>
 
-                                <input name="responzable" id="inputresponzable" type="text"  class=" form-control"    placeholder="Responzable"
+                                <input name="responsable" id="inputresponzable" type="text"  class=" form-control"    placeholder="Responsable"
                                     data-bs-trigger="hover"
                                     data-bs-toggle="popover"
                                     title="Respozable"
@@ -533,7 +542,7 @@ function observador() {
                                     disabled/>
                             </div>
                             <p class="px-4" style="font-size: 10px;">
-                                Responzable.
+                                Responsable.
                             </p>
                         </div>
                     </div>
@@ -593,12 +602,7 @@ function apareceadmin(user) {
             <div class="row">
                 <div class="col-12 col-lg-6 col-md-6 ">
                     <h1 >Envío de Correos</h1>
-                    <small>Balck 938. LisLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</small>
+                    <small>nngnhg.</small>
                     <img class="img-fluid" id="ejecutiva" src="assets/img/biometric.jpg ">
                 </div>
 
@@ -693,29 +697,36 @@ function buscatabla() {
             } else {
                 //guardadatos2();
                 console.log("Este Usuario ya se encuentra registrado");
-                document.getElementById("inputnombres").value = doc.data().nombres;
-                document.getElementById("inputapellidos").value = doc.data().apellidos;
-                document.getElementById("inputcargo").value = doc.data().cargo;
-                document.getElementById("inputcentrocosto").value = doc.data().centrocosto;
-                document.getElementById("inputresponzable").value = doc.data().registra;
-                document.getElementById("inputcausa").value = doc.data().causa;
-                document.getElementById("inputobser").value = doc.data().observaciones;
-                document.getElementById("inputresponzable").value = doc.data().responzable;
-                var fecha = doc.data().fecha;
-                var nueva = fecha.split(" ")[0];
-                var format = nueva.split("-");
-                var ultima = format[2] + '-' + format[1] + '-' + format[0]
+                db.collection("blacklist").where("rut", "==", rutbuscar).onSnapshot((querySnapshot) => {
+                   
+                 
+                    querySnapshot.forEach((doc) => {
+                         
+                        console.log(doc.data().nombres);
+                        document.getElementById("inputnombres").value = doc.data().nombres;
+                        document.getElementById("inputapellidos").value = doc.data().apellidos;
+                        document.getElementById("inputcargo").value = doc.data().cargo;
+                        document.getElementById("inputcentrocosto").value = doc.data().centrocosto;
+                        document.getElementById("inputresponzable").value = doc.data().registra;
+                        document.getElementById("inputcausa").value = doc.data().causa;
+                        document.getElementById("inputobser").value = doc.data().observaciones;
+                        document.getElementById("inputresponzable").value = doc.data().responzable;
+                        var fecha = doc.data().fecha;
+                        var nueva = fecha.split(" ")[0];
+                        var format = nueva.split("-");
+                        var ultima = format[2] + '-' + format[1] + '-' + format[0]
 
 
-                document.getElementById("inputfecha").value = ultima;
+                        document.getElementById("inputfecha").value = ultima;
 
-                console.log(doc.data().fecha);
-                console.log(doc.id);
-                console.log(doc.data().nombres);
-                console.log(doc.data().apellidos);
-                console.log(doc.data().responzable);
-                console.log(doc.data().fecha);
-
+                        console.log(doc.data().fecha);
+                        console.log(doc.id);
+                        console.log(doc.data().nombres);
+                        console.log(doc.data().apellidos);
+                        console.log(doc.data().responzable);
+                        console.log(doc.data().fecha);
+                    })
+                })
             }
         })
 }

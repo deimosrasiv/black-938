@@ -697,29 +697,36 @@ function buscatabla() {
             } else {
                 //guardadatos2();
                 console.log("Este Usuario ya se encuentra registrado");
-                document.getElementById("inputnombres").value = doc.data().nombres;
-                document.getElementById("inputapellidos").value = doc.data().apellidos;
-                document.getElementById("inputcargo").value = doc.data().cargo;
-                document.getElementById("inputcentrocosto").value = doc.data().centrocosto;
-                document.getElementById("inputresponzable").value = doc.data().registra;
-                document.getElementById("inputcausa").value = doc.data().causa;
-                document.getElementById("inputobser").value = doc.data().observaciones;
-                document.getElementById("inputresponzable").value = doc.data().responzable;
-                var fecha = doc.data().fecha;
-                var nueva = fecha.split(" ")[0];
-                var format = nueva.split("-");
-                var ultima = format[2] + '-' + format[1] + '-' + format[0]
+                db.collection("blacklist").where("rut", "==", rutbuscar).onSnapshot((querySnapshot) => {
+                   
+                 
+                    querySnapshot.forEach((doc) => {
+                         
+                        console.log(doc.data().nombres);
+                        document.getElementById("inputnombres").value = doc.data().nombres;
+                        document.getElementById("inputapellidos").value = doc.data().apellidos;
+                        document.getElementById("inputcargo").value = doc.data().cargo;
+                        document.getElementById("inputcentrocosto").value = doc.data().centrocosto;
+                        document.getElementById("inputresponzable").value = doc.data().registra;
+                        document.getElementById("inputcausa").value = doc.data().causa;
+                        document.getElementById("inputobser").value = doc.data().observaciones;
+                        document.getElementById("inputresponzable").value = doc.data().responzable;
+                        var fecha = doc.data().fecha;
+                        var nueva = fecha.split(" ")[0];
+                        var format = nueva.split("-");
+                        var ultima = format[2] + '-' + format[1] + '-' + format[0]
 
 
-                document.getElementById("inputfecha").value = ultima;
+                        document.getElementById("inputfecha").value = ultima;
 
-                console.log(doc.data().fecha);
-                console.log(doc.id);
-                console.log(doc.data().nombres);
-                console.log(doc.data().apellidos);
-                console.log(doc.data().responzable);
-                console.log(doc.data().fecha);
-
+                        console.log(doc.data().fecha);
+                        console.log(doc.id);
+                        console.log(doc.data().nombres);
+                        console.log(doc.data().apellidos);
+                        console.log(doc.data().responzable);
+                        console.log(doc.data().fecha);
+                    })
+                })
             }
         })
 }
